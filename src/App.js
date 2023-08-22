@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage"
 import AboutPage from './pages/AboutPage';
 import AssetsPage from './pages/AssetsPage';
 import TransactionsPage from './pages/TransactionsPage';
-
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
           <Route path="/transactions" exact Component={TransactionsPage}/>
           <Route path="/about" exact Component={AboutPage}/>
         </Routes>
+        <Footer/>
       </Router>
           
     </div>

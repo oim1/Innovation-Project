@@ -2,7 +2,7 @@ import React from 'react'
 
 function AssetsPage() {
   return (
-    <div>Assets Page</div>
+    <h1>Assets Page</h1>
   )
 }
 

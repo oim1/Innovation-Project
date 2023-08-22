@@ -2,7 +2,7 @@ import React from 'react'
 
 function TransactionsPage() {
   return (
-    <div>Transactions Page</div>
+    <h1>Transactions Page</h1>
   )
 }
 
