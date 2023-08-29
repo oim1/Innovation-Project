@@ -27,7 +27,11 @@ module.exports = {
                 {loader: "style-loader"},
                 {loader: "css-loader"}
             ]
-    }
+    },
+        {
+            test: /\.(jpg|png|svg|gif)$/,
+            type: "asset/resource"
+        }
 ]},
 plugins: [htmlPlugin]
 };

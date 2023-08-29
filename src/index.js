@@ -1,18 +1,31 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Home from "./pages/HomePage";
 import Assets from "./pages/AssetsPage";
 import About from "./pages/AboutPage";
 import Transactions from "./pages/TransactionsPage";
 import "../src/styles/App.css"
+import Navbar from "./components/Navbar";
 
 const App = () => {
+    const Layout = () => {
+        return <div>
+            <Navbar />
+            <Outlet />
+        </div>
+    }
+
     const router = createBrowserRouter([
-        { path: "/", element: <Home /> },
-        { path: "/assetspage", element: <Assets /> },
-        { path: "/about", element: <About /> },
-        { path: "/transactions", element: <Transactions /> },
+        {
+            element: <Layout />,
+            children: [
+                { path: "/", element: <Home /> },
+                { path: "/assetspage", element: <Assets /> },
+                { path: "/about", element: <About /> },
+                { path: "/transactions", element: <Transactions /> },
+            ]
+        },
     ]);
     return <div className="App">
         <RouterProvider router={router} />
