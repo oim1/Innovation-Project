@@ -6,7 +6,6 @@ const Home = () => {
   return (
     <div className="HomePage">
       <body>
-        <Navbar />
         <h1 id="MainText">
           Buy and Exchange
           <br />
