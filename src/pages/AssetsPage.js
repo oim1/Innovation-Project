@@ -1,7 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 const Assets = () => {
-    return <h1>Assets</h1>
+    return (
+        <body>
+            <Navbar />
+            <h1>Assets Page</h1>
+        </body>
+    )
 }
 
-export default Assets
+export default Assets;

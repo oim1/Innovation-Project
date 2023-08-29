@@ -1,12 +1,15 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import "../styles/Home.css"
 
 const Home = () => {
     return (
-        <body>
-            <Navbar />
-            <h1>Home Page</h1>
-        </body>
+        <div className="HomePage">
+            <body>
+                <Navbar />
+                <h1 id="MainText">Buy and Exchange<br/>Crypto Tokens Instantly</h1>
+            </body>
+        </div>
     )
 }
 

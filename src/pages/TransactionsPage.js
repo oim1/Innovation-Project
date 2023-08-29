@@ -1,7 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 const Transactions = () => {
-    return <h1>Transactions</h1>
+    return (
+        <body>
+            <Navbar />
+            <h1>Transactions Page</h1>
+        </body>
+    )
 }
 
-export default Transactions
+export default Transactions;
