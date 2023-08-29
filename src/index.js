@@ -7,11 +7,13 @@ import About from "./pages/AboutPage";
 import Transactions from "./pages/TransactionsPage";
 import "../src/styles/App.css"
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const App = () => {
     const Layout = () => {
         return <div>
             <Navbar />
+            <Footer />
             <Outlet />
         </div>
     }
