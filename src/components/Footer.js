@@ -3,8 +3,6 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
-import { Route, Router } from "react-router-dom";
-
 import "../styles/Footer.css";
 
 function Footer() {
