@@ -1,0 +1,87 @@
+.Search {
+    position: absolute;
+    top: 10.60%;
+    height: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #d3c0fa;
+}
+
+#searchQueryInput, #locationQueryInput {
+    height: 2.8rem;
+    margin-top: 50px;
+    outline: none;
+    border: none;
+    border-radius: 1.625rem;
+    font-size: 20px;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#searchQuerySubmit {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+#searchQuerySubmit:hover {
+    cursor: pointer;
+}
+
+#line {
+    color: black;
+    border-top: 3px black;
+    width: 250px;
+}
+
+#googlemaps {
+    display: block;
+    text-decoration: none;
+}
+
+.categoryButton {
+    display: block;
+    margin-left: 80px;
+    margin-bottom: 30px;
+    padding: 5px;
+    font-size: 15px;
+    border: none;
+    background: none;
+    text-align: center;
+}
+
+.categoryButton:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.pageContent {
+    position: absolute;
+    top: 10.60%;
+    height: 100%;
+    right: 0;
+    width: 83.3%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.gridItem {
+    background: lightblue;
+    padding: 20px;
+    margin: 20px;
+}
+
+.gridItem img {
+    height: 125px;
+    width: 250px;
+    border-radius: 4px;
+    border: 0;
+}
+
+.gridItem p {
+
+}
