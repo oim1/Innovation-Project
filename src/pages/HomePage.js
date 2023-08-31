@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Home.css"
+import "../styles/Home.css";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -9,10 +9,10 @@ const Home = () => {
         <h1 id="MainText">
           Buy and Exchange
           <br />
-          Crypto Tokens Instantly
+          Digital Assets Instantly
         </h1>
         <Link to={"/assetspage"}>
-          <button id="GetStarted">Get Started</button>
+          <button id="GetStarted">Get Started!</button>
         </Link>
       </body>
     </div>

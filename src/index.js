@@ -16,8 +16,8 @@ const App = () => {
     return (
       <div>
         <Navbar />
-        <Footer />
         <Outlet />
+        <Footer />
       </div>
     );
   };

@@ -61,19 +61,28 @@
 }
 
 .pageContent {
-  position: absolute;
+  /* position: absolute;
   top: 10.6%;
   height: 100%;
   right: 0;
   width: 83.3%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); */
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20rem;
+  margin-top: 2rem;
+  z-index: 2;
 }
 
 .gridItem {
-  background: lightblue;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  border: 2px solid black;
   padding: 20px;
   margin: 20px;
+  cursor: pointer;
 }
 
 .gridItem img {
@@ -84,4 +93,5 @@
 }
 
 .gridItem p {
+  margin-bottom: 1rem;
 }

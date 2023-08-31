@@ -1,6 +1,13 @@
 import React from "react";
 
+import searchIcon from "../../public/assets/images/search-svgrepo-com.svg";
+import { Slider } from "@mui/material";
+
 function Sidebar() {
+  const [value, setValue] = React.useState([0, 100]);
+  const rangeSelector = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <div className="Search">
       <div className="SearchBar">
