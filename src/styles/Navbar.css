@@ -1,9 +1,9 @@
 .navbar {
-    width: 100%;
-    height: 100px;
-    background-color: greenyellow;
-    display: flex;
-    flex-direction: row;
+  width: 100%;
+  height: 90px;
+  background-color: greenyellow;
+  display: flex;
+  flex-direction: row;
 }
 
 .navbar .leftSide {
@@ -15,12 +15,12 @@
 }
 
 .navbar .leftSide img {
-
-    width: 140px;
+  width: 120px;
 }
 
 .navbar .rightSide {
-  flex: 50%;
+  display: flex;
+  flex: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -31,18 +31,21 @@
   color: black;
   text-decoration: none;
   margin: 20px;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
 }
 
-.navbar .rightSide button {
-  background-color: transparent;
-  border: none;
-  color: white;
+.navbar .rightSide a button {
+  font: inherit;
+  width: 120px;
+  height: 40px;
+  background-color: white;
+  border-radius: 25px;
+  border: 1px black solid;
   cursor: pointer;
 }
 
-.navbar .rightSide svg {
+/* .navbar .rightSide svg {
   font-size: 40px;
 }
 
@@ -69,7 +72,7 @@
 .navbar #open a {
   width: 70px;
   margin: 5px;
-}
+} */
 @media only screen and (max-width: 900px) {
   .navbar .rightSide a {
     width: 70px;
@@ -79,7 +82,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .navbar .rightSide a {
     display: none;
   }
@@ -92,9 +95,9 @@
   .navbar .rightSide button {
     display: inherit;
   }
-}
+} */
 
-@media only screen and (min-width: 600px) {
+/* @media only screen and (min-width: 600px) {
   .navbar .rightSide button {
     display: none;
   }
@@ -102,4 +105,4 @@
   .hiddenLinks {
     display: none;
   }
-}
+} */
