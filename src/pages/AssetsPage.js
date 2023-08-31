@@ -17,14 +17,10 @@ import item11 from "../../public/assets/images/assetsPageImages/item11.jpg";
 import item12 from "../../public/assets/images/assetsPageImages/item12.jpg";
 
 const Assets = () => {
-  const [value, setValue] = React.useState([0, 100]);
-  const rangeSelector = (event, newValue) => {
-    setValue(newValue);
-  };
   return (
     <>
-      <Sidebar />
       <div className="AssetsPage">
+        <Sidebar />
         <div className="pageContent">
           <div className="gridItem">
             <img src={item1} alt="marketplace item" />

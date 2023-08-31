@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="HomePage">
-      <body>
+      <div classname="homeContainer">
         <h1 id="MainText">
           Buy and Exchange
           <br />
@@ -14,7 +14,7 @@ const Home = () => {
         <Link to={"/assetspage"}>
           <button id="GetStarted">Get Started!</button>
         </Link>
-      </body>
+      </div>
     </div>
   );
 };

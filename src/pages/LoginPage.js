@@ -21,27 +21,29 @@ function LoginPage() {
     setPassword(e.target.value);
   }
   return (
-    <form className="signinForm" onSubmit={handleSubmit}>
-      <label for="username">Username</label>
-      <input
-        id="username"
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={handleChangeUsername}
-      />
-      <label for="password">Password</label>
-      <input
-        id="password"
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={handleChangePassword}
-      />
-      <button type="submit" onSubmit={handleSubmit}>
-        Log In
-      </button>
-    </form>
+    <div className="loginPage">
+      <form className="loginForm" onSubmit={handleSubmit}>
+        <label for="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={handleChangeUsername}
+        />
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={handleChangePassword}
+        />
+        <button type="submit" onSubmit={handleSubmit}>
+          Log In
+        </button>
+      </form>
+    </div>
   );
 }
 

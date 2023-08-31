@@ -3,13 +3,16 @@ import React from "react";
 import searchIcon from "../../public/assets/images/search-svgrepo-com.svg";
 import { Slider } from "@mui/material";
 
+import "../styles/Sidebar.css";
+
 function Sidebar() {
   const [value, setValue] = React.useState([0, 100]);
   const rangeSelector = (event, newValue) => {
     setValue(newValue);
   };
+
   return (
-    <div className="Search">
+    <div className="Sidebar">
       <div className="SearchBar">
         <input
           id="searchQueryInput"
@@ -25,17 +28,6 @@ function Sidebar() {
           />
         </button>
       </div>
-      <hr id="line" />
-      <h1 id="filter">Filter</h1>
-      <input
-        id="locationQueryInput"
-        type="text"
-        name="searchQueryInput"
-        placeholder="Location"
-      />
-      <a id="googlemaps" href="https://www.google.com/maps/">
-        Google Maps
-      </a>
       <h2>Price Range</h2>
       <Slider
         value={value}
