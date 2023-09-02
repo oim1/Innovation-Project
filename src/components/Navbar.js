@@ -15,7 +15,7 @@ const Navbar = () => {
         <Link to={"/"}>Home</Link>
         <Link to={"/assetspage"}>Assets</Link>
         <Link to={"/about"}>About Us</Link>
-        <Link to={"/transactions"}>Transactions</Link>
+        <Link to={"/transactions"}>History</Link>
         <Link to={"/login"}>
           {" "}
           <button> Log in </button>{" "}

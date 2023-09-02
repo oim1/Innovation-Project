@@ -21,7 +21,7 @@ const Assets = () => {
     <>
       <div className="AssetsPage">
         <Sidebar />
-        <div className="pageContent">
+        <div className="gridContainer">
           <div className="gridItem">
             <img src={item1} alt="marketplace item" />
             <p>$300</p>

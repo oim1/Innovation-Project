@@ -1,29 +1,21 @@
 .AssetsPage {
   display: flex;
 }
-.pageContent {
-  /* position: absolute;
-  top: 10.6%;
-  height: 100%;
-  right: 0;
-  width: 83.3%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); */
-
+.gridContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-left: auto;
   margin-top: 2rem;
-  z-index: 2;
+  z-index: -2;
 }
 
 .gridItem {
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  border: 2px solid black;
-  padding: 20px;
+  border: 2px solid #ededed;
+  padding: 15px;
   margin: 10px;
   cursor: pointer;
 }
