@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+
 #MainText {
     margin: 0 0 0 50px;
     position: absolute;
@@ -6,17 +8,21 @@
     text-align: left;
     font-size: 50px;
     color: greenyellow;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 body {
-    background-size: contain;
+    background-size: cover;
     background: url("../../public/assets/images/background.jpg") no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #GetStarted {
     position: absolute;
-    top: 60%;
-    left: 2.5%;
+    top: 62%;
+    left: 3%;
     transform: translateY(-50%);
     padding: 10px 35px;
     font-size: 20px;
