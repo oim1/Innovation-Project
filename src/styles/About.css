@@ -4,59 +4,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap");
 
 .AboutPage {
-  width: 100%;
-  height: 75vh;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: left;
   flex-direction: column;
 }
 
-#page_header {
-  position: absolute;
-  top: 100px;
-  left: 0px;
-  right: 0px;
+.page_header {
+  position: relative;
+  margin: auto;
+  padding-top: 5px;
   background-color: #75809e;
   color: #000000;
 }
 
 .header {
   font-family: "Raleway", sans-serif;
-  font-size: 50px;
-  padding-top: 20px;
+  font-size: 30px;
 }
 
-#page_header p {
+.page_header p {
   font-size: 20px;
   font-family: "Ubuntu", sans-serif;
-  padding: 15px 60px 25px 60px;
 }
 
-.member1,
-.member2,
-.member3 {
-  position: absolute;
-  left: 10%;
-  right: 10%;
+.member {
   background-color: #ffffff;
   color: #000000;
   border-radius: 25px;
+  border: 1px solid grey;
 }
 
-.member1 {
-  top: 42%;
-}
-
-.member2 {
-  top: 64%;
-}
-
-.member3 {
-  top: 86%;
-}
-
-#TeamMembers h1 {
+.TeamMembers h1 {
   font-size: 180%;
   font-family: "Kanit", sans-serif;
   float: left;
@@ -64,10 +44,10 @@
   margin-bottom: 5%;
 }
 
-#TeamMembers p {
-  font-size: 120%;
+.TeamMembers p {
+  font-size: 20px;
   font-family: "Titillium Web", sans-serif;
   margin: 4.3%;
-  text-align: center;
+  text-align: left;
   padding: 0 0 0 20%;
 }

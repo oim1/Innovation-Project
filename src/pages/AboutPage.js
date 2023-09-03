@@ -1,11 +1,12 @@
 import React from "react";
-import "../styles/about.css";
+
+import "../styles/About.css";
 
 const About = () => {
   return (
     <div className="AboutPage">
-      <div id="page_header">
-        <h1 class="header">Meet The Creative Minds Behind</h1>
+      <div className="page_header">
+        <h1 className="header">Meet The Creative Minds Behind</h1>
         <p>
           Welcome to the about page of Coin WAVE. We are thrilled to introduce
           the creative minds and passionate individuals who have come together
@@ -15,8 +16,8 @@ const About = () => {
         </p>
       </div>
 
-      <div id="TeamMembers">
-        <div class="member1">
+      <div className="TeamMembers">
+        <div className="member">
           <h1>The Visionary</h1>
           <p>
             Quang Minh Phan is the visionary thinker of our team. With a
@@ -25,7 +26,7 @@ const About = () => {
           </p>
         </div>
 
-        <div class="member2">
+        <div className="member">
           <h1>The coding master</h1>
           <p>
             Adrian Chai is the technical powerhouse responsible for the smooth
@@ -34,7 +35,7 @@ const About = () => {
           </p>
         </div>
 
-        <div class="member3">
+        <div className="member">
           <h1>The Designer</h1>
           <p>
             Samuditha Kavishka's artistic flair and design expertise breathe

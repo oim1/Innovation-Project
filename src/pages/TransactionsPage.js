@@ -16,7 +16,7 @@ const Transactions = () => {
   }
 
   const rows = [
-    createData("101", "Monitor", "02/09/2022", "400$", "Completed"),
+    createData("101", "Monitor", "02/09/2022`", "400$", "Completed"),
     createData("101", "Monitor", "02/09/2022", "400$", "Completed"),
     createData("101", "Monitor", "02/09/2022", "400$", "Completed"),
     createData("101", "Monitor", "02/09/2022", "400$", "Completed"),

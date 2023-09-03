@@ -10,11 +10,11 @@
 
 .TransactionPage h1 {
   display: block;
-
   padding: 10px 10px;
 }
 
 .table-container {
+  width: auto;
   max-width: 1000px;
   margin-right: auto;
   margin-left: auto;

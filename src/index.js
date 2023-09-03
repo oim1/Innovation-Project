@@ -6,10 +6,10 @@ import Assets from "./pages/AssetsPage";
 import About from "./pages/AboutPage";
 import Transactions from "./pages/TransactionsPage";
 import LoginPage from "./pages/LoginPage";
-import "../src/styles/App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { Login } from "@mui/icons-material";
+
+import "../src/styles/App.css";
 
 const App = () => {
   const Layout = () => {
