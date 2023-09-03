@@ -7,8 +7,14 @@ import "../styles/Sidebar.css";
 
 function Sidebar() {
   const [value, setValue] = React.useState([0, 100]);
+
   const rangeSelector = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const searchSubmitHandler = (e) => {
+    e.preventDefault();
+    alert("Submitted");
   };
 
   return (
@@ -20,7 +26,12 @@ function Sidebar() {
           name="searchQueryInput"
           placeholder="Search"
         />
-        <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+        <button
+          id="searchQuerySubmit"
+          type="submit"
+          name="searchQuerySubmit"
+          onClick={searchSubmitHandler}
+        >
           <img
             src={searchIcon}
             style={{ width: 24, height: 24 }}
@@ -28,6 +39,8 @@ function Sidebar() {
           />
         </button>
       </div>
+      <hr id="line" />
+      {/* Price selection section */}
       <h2>Price Range</h2>
       <Slider
         value={value}
@@ -36,9 +49,37 @@ function Sidebar() {
         max={10000}
       />
       {value[0]} - {value[1]}
+      {/* End of price section */}
       <hr id="line" />
+      {/* Categories selection section */}
       <h1 id="filter">Categories</h1>
-      <button className="categoryButton" type="button">
+      <div>
+        <label className="sidebar-label-container">
+          <input type="radio" value="All" name="test" />
+          All
+        </label>
+
+        <label className="sidebar-label-container">
+          <input type="radio" value="Vehicles" name="test" />
+          Vehicles
+        </label>
+
+        <label className="sidebar-label-container">
+          <input type="radio" value="Electronics" name="test" />
+          Electronics
+        </label>
+
+        <label className="sidebar-label-container">
+          <input type="radio" value="Animals" name="test" />
+          Animals
+        </label>
+
+        <label className="sidebar-label-container">
+          <input type="radio" value="FoodnDrinks" name="test" />
+          Food & Drinks
+        </label>
+      </div>
+      {/* <button className="categoryButton" type="button">
         Property
       </button>
       <button className="categoryButton" type="button">
@@ -55,7 +96,7 @@ function Sidebar() {
       </button>
       <button className="categoryButton" type="button">
         NFTs
-      </button>
+      </button> */}
     </div>
   );
 }

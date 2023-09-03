@@ -22,6 +22,7 @@ function LoginPage() {
   }
   return (
     <div className="loginPage">
+      <h1> Sign in </h1>
       <form className="loginForm" onSubmit={handleSubmit}>
         <label for="username">Username</label>
         <input
@@ -39,7 +40,7 @@ function LoginPage() {
           value={password}
           onChange={handleChangePassword}
         />
-        <button type="submit" onSubmit={handleSubmit}>
+        <button id="loginButton" type="submit" onSubmit={handleSubmit}>
           Log In
         </button>
       </form>
