@@ -17,13 +17,13 @@ const Transactions = () => {
 
   const rows = [
     createData("101", "Monitor", "02/09/2022`", "400$", "Completed"),
-    createData("101", "Monitor", "02/09/2022", "400$", "Completed"),
-    createData("101", "Monitor", "02/09/2022", "400$", "Completed"),
-    createData("101", "Monitor", "02/09/2022", "400$", "Completed"),
-    createData("101", "Monitor", "02/09/2022", "400$", "Completed"),
-    createData("101", "Monitor", "02/09/2022", "400$", "Completed"),
-    createData("101", "Monitor", "02/09/2022", "400$", "Completed"),
-    createData("101", "Monitor", "02/09/2022", "400$", "Completed"),
+    createData("102", "Game Pass", "01/09/2022", "360$", "Pending"),
+    createData("103", "Monitor", "31/08/2022", "1230$", "Pending"),
+    createData("104", "Monitor", "30/08/2022", "32$", "Completed"),
+    createData("105", "Monitor", "29/08/2022", "40$", "Dispatched"),
+    createData("106", "Monitor", "28/08/2022", "100$", "Completed"),
+    createData("107", "Monitor", "27/08/2022", "140$", "Completed"),
+    createData("108", "Monitor", "26/08/2022", "900$", "Completed"),
   ];
   return (
     <div className="TransactionsPage">
