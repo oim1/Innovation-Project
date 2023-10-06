@@ -12,10 +12,10 @@ const Navbar = () => {
   };
   return (
     <div className="navbar">
-      <div className="leftSide" id={openLinks ? "open" : "close"}>
+      <div className="leftSide" id={openLinks ? "open" : "close"}> {/*The left side of the nav bar*/}
         <Link to={"/"}>
-          <img src={logo} alt="coinwave logo" />
-          <div className="hiddenLinks">
+          <img src={logo} alt="coinwave logo" /> {/*CoinWAVE logo*/}
+          <div className="hiddenLinks">           {/*Hidden links for small-sized layout*/ }
             <Link to={"/"}>Home</Link>
             <Link to={"/assetspage"}>Assets</Link>
             <Link to={"/transactions"}>History</Link>
@@ -26,7 +26,7 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-      <div className="rightSide">
+      <div className="rightSide">           {/* Links to different pages*/}
         <Link to={"/"}>Home</Link>
         <Link to={"/assetspage"}>Assets</Link>
         <Link to={"/transactions"}>History</Link>
@@ -34,7 +34,7 @@ const Navbar = () => {
         <Link to={"/login"}>
           <button> Log in </button>{" "}
         </Link>
-        <button id="hamburger" onClick={toggleNavbar}>
+        <button id="hamburger" onClick={toggleNavbar}>  {/* Hamburger button for small-sized layouts */}
           <ReorderIcon />
         </button>
       </div>
