@@ -1,0 +1,44 @@
+.AboutPage {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+}
+
+.page_header {
+  position: relative;
+  margin: auto;
+  padding-top: 5px;
+  background-color: #75809e;
+  color: #000000;
+}
+
+.header {
+  font-size: 30px;
+}
+
+.page_header p {
+  font-size: 20px;
+}
+
+.member {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 25px;
+  border: 1px solid grey;
+}
+
+.TeamMembers h1 {
+  font-size: 180%;
+  float: left;
+  margin-left: 2.8%;
+  margin-bottom: 5%;
+}
+
+.TeamMembers p {
+  font-size: 20px;
+  margin: 4.3%;
+  text-align: left;
+  padding: 0 0 0 20%;
+}
