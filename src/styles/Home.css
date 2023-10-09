@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 
 #MainText {
@@ -33,7 +34,9 @@ body {
     transition-duration: 0.5s;
 }
 
-#GetStarted:hover {
-    opacity: 0.6;
-    cursor: pointer;
+#GetStarted:hover 
+{
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }

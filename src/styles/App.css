@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
+
 .App {
   text-align: center;
   width: 100%;
@@ -5,9 +7,12 @@
   display: flex;
   flex-direction: column;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: black;
 }
 
 body {
   padding: 0;
   margin: 0;
+  background-size: cover;
+  background: white;
 }
