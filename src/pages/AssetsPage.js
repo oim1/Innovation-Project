@@ -25,13 +25,14 @@ const Assets = () => {
   return (
     <>
       <div className="AssetsPage">
-        <Sidebar />
-        <div className="gridContainer">
-          <div className="gridItem">
-            <img src={item1} alt="marketplace item" />
-            <p>BMW M4 at Dawn </p>
-            <div className="item-price"> $300</div>
-            <button className="add-to-cart-btn" onClick={addHandler}>
+        <Sidebar />       
+        <div className="gridContainer">               {/*Asset Grid Container*/}
+          <div className="gridItem">                  {/*Asset Container*/}
+            <img src={item1} alt="marketplace item" /> {/*Asset image*/}
+            <h1 className="product-name">Supercar 1</h1>
+            <p>BMW M4 at Dawn </p>                        {/*Description*/}
+            <div className="item-price"> $300</div>       {/*Price*/}
+            <button className="add-to-cart-btn" onClick={addHandler}> {/*Add to cart button*/}
               Add to cart
             </button>
           </div>
