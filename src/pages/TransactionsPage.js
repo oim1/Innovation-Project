@@ -10,32 +10,33 @@ import Paper from "@mui/material/Paper";
 
 import "../styles/Transactions.css";
 
-const Transactions = () => {
+const Transactions = () => {                {/*Dummy data creation function*/}
   function createData(orderID, orderItem, orderDate, orderPrice, orderStatus) {
     return { orderID, orderItem, orderDate, orderPrice, orderStatus };
   }
 
-  const rows = [
+   {/*Creating dummy data*/}
+  const rows = [                       
     createData("101", "Monitor", "02/09/2022`", "400$", "Completed"),
     createData("102", "Game Pass", "01/09/2022", "360$", "Pending"),
-    createData("103", "Monitor", "31/08/2022", "1230$", "Pending"),
-    createData("104", "Monitor", "30/08/2022", "32$", "Completed"),
-    createData("105", "Monitor", "29/08/2022", "40$", "Dispatched"),
-    createData("106", "Monitor", "28/08/2022", "100$", "Completed"),
-    createData("107", "Monitor", "27/08/2022", "140$", "Completed"),
-    createData("108", "Monitor", "26/08/2022", "900$", "Completed"),
+    createData("103", "Mouse", "31/08/2022", "1230$", "Pending"),
+    createData("104", "Bitcoin", "30/08/2022", "32$", "Completed"),
+    createData("105", "Ethereum", "29/08/2022", "40$", "Dispatched"),
+    createData("106", "The Weeknd's Album", "28/08/2022", "100$", "Completed"),
+    createData("107", "Gaming Keyboard", "27/08/2022", "140$", "Completed"),
+    createData("108", "Key chain", "26/08/2022", "900$", "Completed"),
   ];
   return (
     <div className="TransactionsPage">
       <h1>Past transactions</h1>
 
-      <TableContainer component={Paper} className="table-container">
+      <TableContainer component={Paper} className="table-container"> 
         <Table
           sx={{ minWidth: 650 }}
           aria-label="simple table"
           className="table-content"
         >
-          <TableHead className="table-header">
+          <TableHead className="table-header">   {/*Table Header*/}
             <TableRow>
               <TableCell>Order ID</TableCell>
               <TableCell className="header-item" align="right">
@@ -52,7 +53,7 @@ const Transactions = () => {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody>                {/*Table data*/}
             {rows.map((row) => (
               <TableRow
                 key={row.orderID}
