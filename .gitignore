@@ -132,3 +132,5 @@ dist
 /.idea/Innovation-Project.iml
 /.idea/modules.xml
 /.idea/vcs.xml
+
+__pycache__

@@ -19,7 +19,8 @@ function Sidebar() {
 
   return (
     <div className="Sidebar">
-      <div className="SearchBar">
+      {/*Search bar section*/}
+      <div className="SearchBar">     
         <input
           id="searchQueryInput"
           type="text"
@@ -40,8 +41,10 @@ function Sidebar() {
         </button>
       </div>
       <hr id="line" />
+      {/* End of search bar section */}
+
       {/* Price selection section */}
-      <h2>Price Range</h2>
+      <h2>Price Range</h2>   
       <Slider
         value={value}
         onChange={rangeSelector}
@@ -51,8 +54,10 @@ function Sidebar() {
       {value[0]} - {value[1]}
       {/* End of price section */}
       <hr id="line" />
+
+
       {/* Categories selection section */}
-      <h1 id="filter">Categories</h1>
+      <h1 id="filter">Categories</h1> 
       <div>
         <label className="sidebar-label-container">
           <input type="radio" value="All" name="test" />
@@ -79,24 +84,7 @@ function Sidebar() {
           Food & Drinks
         </label>
       </div>
-      {/* <button className="categoryButton" type="button">
-        Property
-      </button>
-      <button className="categoryButton" type="button">
-        Health & Care
-      </button>
-      <button className="categoryButton" type="button">
-        Groceries
-      </button>
-      <button className="categoryButton" type="button">
-        Vehicles
-      </button>
-      <button className="categoryButton" type="button">
-        Electronics
-      </button>
-      <button className="categoryButton" type="button">
-        NFTs
-      </button> */}
+      {/* End of categories section */}
     </div>
   );
 }
