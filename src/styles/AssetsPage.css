@@ -35,7 +35,6 @@
 }
 
 .item-price {
-  display: block;
   text-align: center;
   margin: 1rem;
   font-size: 30px;
@@ -59,4 +58,7 @@
   background-color: black;
   color: white;
   cursor: pointer;
+}
+#productTitle {
+  font-weight: bold;
 }

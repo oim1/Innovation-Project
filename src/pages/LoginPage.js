@@ -5,7 +5,7 @@ function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleSubmit(e) {
+  function handleSubmit(e) {   {/*Alert a message when the login form is submitted*/}
     e.preventDefault();
     if (username === "") alert("Username missing, please try again.");
     else if (password === "") alert("Password missing, please try again.");
