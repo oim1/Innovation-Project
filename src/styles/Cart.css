@@ -1,0 +1,53 @@
+/* Cart.css */
+
+.Cart {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 20px;
+  max-width: px;
+  margin: 0 auto;
+}
+
+.Cart h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.Cart ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.Cart li {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+
+}
+
+.Cart #addremove
+{
+  background-color: rgb(230, 156, 88);
+  padding:2px 7px 2px 7px;
+  border-radius: 10px;
+  margin:5px;
+}
+
+.Cart #Remove
+{
+  background-color: rgb(219, 85, 62);
+  font-size: 15px;
+  color:#f9f9f9;
+  padding:2px 7px 2px 7px;
+  border-radius: 10px;
+  margin:5px;
+}
+
+.Cart li:first-child {
+  font-weight: bold;
+}
+
+.EmptyCartMessage {
+  color: #888;
+  text-align: center;
+}
+
