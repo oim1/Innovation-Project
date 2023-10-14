@@ -1,61 +1,127 @@
 .Sidebar {
   position: static;
-  width: 15rem;
+  width: 20%;
   height: auto;
-  padding-left: 20px;
-  padding-right: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 0px 5px;
   background-color: white;
   border-right: 2px solid #dbd9d9;
-  /* #d3c0fa */
+}
+
+.Sidebar svg {
+   display: none; 
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 2px;
+  margin: 20px 0px;
 }
 
 #searchQueryInput {
   height: 2.8rem;
-  margin-top: 50px;
+  width: 75%;
   outline: none;
-  border: 1px solid grey;
+  margin: 20px auto;
+  border: 2px solid grey;
   border-radius: 1.625rem;
   font-size: 20px;
   background-color: white;
   text-align: center;
-  margin-bottom: 20px;
 }
 
-#searchQuerySubmit {
-  width: 3.5rem;
-  height: 2.8rem;
-  margin-left: -3.5rem;
-  background: none;
-  border: none;
-  outline: none;
-}
-
-#searchQuerySubmit:hover {
+.sidebar-label-container{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: auto;
+  padding-left: 35px;
+  margin-bottom: 12px;
   cursor: pointer;
+  font-size: 22px;
+  align-items: center;
+  justify-content: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-#line {
-  color: black;
-  border-top: 3px black;
-  width: 250px;
+.sidebar-label-container input{
+  margin-left: 40px;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
-.categoryButton {
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.sidebar-label-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.sidebar-label-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.sidebar-label-container input:checked ~ .checkmark:after {
   display: block;
-  margin-left: 80px;
-  margin-bottom: 30px;
-  padding: 5px;
-  font-size: 15px;
-  border: none;
-  background: none;
-  text-align: center;
 }
 
-.categoryButton:hover {
-  cursor: pointer;
-  color: white;
+/* Style the checkmark/indicator */
+.sidebar-label-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 @media (max-width: 768px){
+  .Sidebar#close{
+    width: 4rem;
+  }
+
+  .Sidebar#close #searchQueryInput {
+    display: none
+  }
+
+  .Sidebar#close .Categories {
+    display: none
+  }
   
+  .Sidebar .arrowButton { /*Show the hamburger button*/
+    display: flex;
+    margin: 10px;
+  }
+
+  .Sidebar#open {
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100rem;
+    cursor: pointer;
+  }
+
 }
