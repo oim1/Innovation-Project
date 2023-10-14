@@ -11,17 +11,18 @@
 
 .gridItem {
   width: 280px;
+  height: 625px;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   box-shadow: 0 0 40px rgba(102, 101, 107, 0.6);
   border: 2px solid #ededed;
   padding: 20px;
-  margin: 10px;
+  margin: 10px;;
   cursor: pointer;
 }
 
 .gridItem img {
-  height: 70%;
+  height: 60%;
   width: 260px;
   border-radius: 4px;
   border: 0;
@@ -41,7 +42,6 @@
 }
 
 .gridItem button {
-  bottom: 10px;
   width: 260px;
   margin: auto;
   padding: 10px 0px;
