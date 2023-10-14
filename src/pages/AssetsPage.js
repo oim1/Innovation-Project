@@ -20,54 +20,6 @@ const Assets = () => {
   const [category, setCategory] = useState("")
   const [isSelected, setSelected] = useState(false)
 
-  // // Add to cart
-  // const [cartItems, setCartItems] = useState([]);
-
-  // useEffect(() => {
-  //   const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
-  //   if (storedCartItems) {
-  //     setCartItems(storedCartItems);
-  //   }
-  // }, []);
-
-  // function addHandler(e, item) {
-  //   e.preventDefault();
-  //   const existingItem = cartItems.find((cartItem) => cartItem.name === item.name);
-
-  //   if (existingItem) {
-  //     const updatedCartItems = cartItems.map((cartItem) =>
-  //       cartItem.name === existingItem.name ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-  //     );
-  //     setCartItems(updatedCartItems);
-  //     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-  //   } 
-  //   else {
-  //     setCartItems([...cartItems, { ...item, quantity: 1 }]);
-  //   }
-
-  // }
-
-  // function updateQuantity(item, quantityChange) {
-  //   const updatedCartItems = cartItems.map((cartItem) => {
-  //     if (cartItem.name === item.name) {
-  //       const newQuantity = cartItem.quantity + quantityChange;
-  //       return newQuantity > 0 ? { ...cartItem, quantity: newQuantity } : cartItem;
-  //     }
-  //     return cartItem;
-  //   });
-
-  //   setCartItems(updatedCartItems);
-  //   localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-  // }
-
-  // function removeFromCart(item) {
-  //   const updatedCartItems = cartItems.filter((cartItem) => cartItem.name !== item.name);
-  //   setCartItems(updatedCartItems);
-  //   localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-  // }
-
-  // Add to cart
-
   useEffect(() => {
     getProducts();
   }, []);
@@ -82,10 +34,6 @@ const Assets = () => {
   const categoryHandler = (e) => {
     setCategory(e.target.value);
     setSelected(true);
-  };
-
-  const searchHandler = () => {
-    console.log(category)
   };
 
   const [openSidebar, setOpenSidebar] = useState(false);
