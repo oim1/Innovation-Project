@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from "react";
-import "../styles/AssetsPage.css";
+import "../styles/pages/AssetsPage.css";
 import { createClient } from "@supabase/supabase-js";
 import { Slider } from "@mui/material";
-import "../styles/Sidebar.css";
+import "../styles/components/Sidebar.css";
 import searchIcon from "../../public/assets/images/search-svgrepo-com.svg";
 
 const supabase = createClient("https://bjihaznrhkskpfiyimdr.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqaWhhem5yaGtza3BmaXlpbWRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY5MDE0ODQsImV4cCI6MjAxMjQ3NzQ4NH0.2gJLsyOSXl2uLEZ0vJO3xWr7Kod3ddtqfkmR8tiM4J8", { db: { schema: "Marketplace"}});

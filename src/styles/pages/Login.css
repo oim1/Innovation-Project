@@ -7,19 +7,28 @@
   flex-direction: column;
 }
 
+.loginPage img{
+  width: 120px;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 2px;
+}
+
 .loginPage h1 {
   margin-bottom: 10px;
   padding: 0;
 }
 
-.loginPage form {
+.loginPage .loginForm {
+  top: 50%;
+  left: 50%;
   height: 350px;
   width: 400px;
   background-color: rgba(255, 255, 255, 0.13);
   border-radius: 10px;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  box-shadow: 0 0 20px rgba(8, 7, 16, 0.6);
   padding: 50px 35px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -50,7 +59,8 @@ form input {
   font-size: 14px;
   font-weight: 300;
 }
-form button {
+  .loginForm .loginButton {
+justify-self: center;
   margin-top: 50px;
   width: 100%;
   background-color: white;
@@ -63,7 +73,7 @@ form button {
   cursor: pointer;
 }
 
-form button:hover {
+  .loginButton:hover {
   background-color: black;
   color: white;
 }
