@@ -3,7 +3,7 @@ import React from "react";
 import searchIcon from "../../public/assets/images/search-svgrepo-com.svg";
 import { Slider } from "@mui/material";
 
-import "../styles/Sidebar.css";
+import "../styles/components/Sidebar.css";
 
 function Sidebar() {
   const [value, setValue] = React.useState([0, 100]);

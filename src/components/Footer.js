@@ -5,7 +5,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 
 import { Link } from "react-router-dom";
 
-import "../styles/Footer.css";
+import "../styles/components/Footer.css";
 
 function Footer() {
   return (
