@@ -7,10 +7,10 @@ import About from "./pages/AboutPage";
 import Cart from "./pages/Cart";
 import Transactions from "./pages/TransactionsPage";
 import LoginPage from "./pages/LoginPage";
+import Cart from "./pages/Cart";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
-
 import "../src/styles/App.css";
 
 const App = () => {
@@ -32,10 +32,11 @@ const App = () => {
         { path: "/assetspage", element: <Assets /> },
         { path: "/about", element: <About /> },
         { path: "/transactions", element: <Transactions /> },
-        { path: "/login", element: <LoginPage /> },
-        { path: "/cart", element: <Cart/>}
+        { path: "/cart", element: <Cart /> },
+
       ],
     },
+    { path: "/login", element: <LoginPage /> }
   ]);
   return (
     <div className="App">
@@ -46,6 +47,31 @@ const App = () => {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+      <App />
   </React.StrictMode>
+);
+
+createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Root />}>
+      <Route path="contact" element={<Contact />} />
+      <Route
+        path="dashboard"
+        element={<Dashboard />}
+        loader={({ request }) =>
+          fetch("/api/dashboard.json", {
+            signal: request.signal,
+          })
+        }
+      />
+      <Route element={<AuthLayout />}>
+        <Route
+          path="login"
+          element={<Login />}
+          loader={redirectIfUser}
+        />
+        <Route path="logout" action={logoutUser} />
+      </Route>
+    </Route>
+  )
 );

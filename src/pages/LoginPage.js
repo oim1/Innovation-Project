@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import "../styles/Login.css";
+import { Link } from "react-router-dom";
+import logo from "../../public/assets/logos/coinwave.png";
+import "../styles/pages/Login.css";
+
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -21,11 +24,15 @@ function LoginPage() {
   }
   return (
     <div className="loginPage">
-      <h1> Sign in </h1>
+      <Link to={"/"}>
+          <img src={logo} alt="coinwave logo" /> {/*CoinWAVE logo*/}
+      </Link>
+      
       <form className="loginForm" onSubmit={handleSubmit}>
+        <h1> Sign in </h1>
         <label for="username">Username</label>
         <input
-          id="username"
+          className="username"
           type="text"
           placeholder="Username"
           value={username}
@@ -33,13 +40,13 @@ function LoginPage() {
         />
         <label for="password">Password</label>
         <input
-          id="password"
+          className="password"
           type="password"
           placeholder="Password"
           value={password}
           onChange={handleChangePassword}
         />
-        <button id="loginButton" type="submit" onSubmit={handleSubmit}>
+        <button className="loginButton" type="submit" onSubmit={handleSubmit}>
           Log In
         </button>
       </form>
