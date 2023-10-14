@@ -60,6 +60,7 @@ const Assets = () => {
     setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   }
+
   return (
     <>
       <div className="AssetsPage">
@@ -164,9 +165,8 @@ const Assets = () => {
         </div>
       </div>
       <div className="CartContainer">
-        <Cart cartItems={cartItems} updateQuantity={updateQuantity} removeFromCart={removeFromCart} />
+      <Cart cartItems={cartItems} updateQuantity={updateQuantity} removeFromCart={removeFromCart} />
       </div>
-      <Link to={"/cartpage"}>My Cart</Link>
     </>
   );
 };
