@@ -8,7 +8,6 @@ import Transactions from "./pages/TransactionsPage";
 import LoginPage from "./pages/LoginPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
 import "../src/styles/App.css";
 
 const App = () => {
@@ -43,6 +42,6 @@ const App = () => {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+      <App />
   </React.StrictMode>
 );
