@@ -9,6 +9,13 @@ const Cart = ({ cartItems = [], updateQuantity, removeFromCart }) => {
   const total = calculateTotal(cartItems);
 
 
+const calculateTotal = (cartItems) => {
+  return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+};
+
+const Cart = ({ cartItems = [], updateQuantity, removeFromCart }) => {
+  const total = calculateTotal(cartItems);
+
   return (
     <div className="Cart">
       <h2>Shopping Cart</h2>
@@ -30,10 +37,8 @@ const Cart = ({ cartItems = [], updateQuantity, removeFromCart }) => {
       </ul>
       <div className="Total">Total is ---- ${total}</div>
       
-
     </div>
   );
 };
-
-
+}
 export default Cart;

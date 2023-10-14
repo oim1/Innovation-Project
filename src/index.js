@@ -4,11 +4,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Home from "./pages/HomePage";
 import Assets from "./pages/AssetsPage";
 import About from "./pages/AboutPage";
-import Cart from "./pages/Cart";
 import Transactions from "./pages/TransactionsPage";
 import LoginPage from "./pages/LoginPage";
 import Cart from "./pages/Cart";
-
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "../src/styles/App.css";
@@ -30,9 +28,10 @@ const App = () => {
       children: [
         { path: "/", element: <Home /> },
         { path: "/assetspage", element: <Assets /> },
+        { path: "/cart" , element: <CartPage/>},
         { path: "/about", element: <About /> },
         { path: "/transactions", element: <Transactions /> },
-        { path: "/cart", element: <Cart /> },
+        { path: "/login", element: <LoginPage /> },
 
       ],
     },

@@ -19,10 +19,10 @@ const Navbar = () => {
           <div className="hiddenLinks">           {/*Hidden links for small-sized layout*/ }
             <Link to={"/"}>Home</Link>
             <Link to={"/assetspage"}>Assets</Link>
+            <Link to={"/cart"}>My Cart</Link>
             <Link to={"/transactions"}>History</Link>
             <Link to={"/cart"}>My Cart</Link>
-            <Link to={"/about"}>About Us</Link>
-
+            <Link to={"/about"}>About Us</Link>        
             <Link to={"/login"}>
               <button> Log in </button>
             </Link>
@@ -32,8 +32,8 @@ const Navbar = () => {
       <div className="rightSide">           {/* Links to different pages*/}
         <Link to={"/"}>Home</Link>
         <Link to={"/assetspage"}>Assets</Link>
-        <Link to={"/transactions"}>History</Link>
         <Link to={"/cart"}>My Cart</Link>
+        <Link to={"/transactions"}>History</Link>
         <Link to={"/about"}>About Us</Link>
         <Link to={"/login"}>
           <button> Log in </button>{" "}

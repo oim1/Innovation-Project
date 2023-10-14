@@ -18,7 +18,6 @@ const Assets = () => {
   const [value, setValue] = useState([0, 100]);
   const [category, setCategory] = useState("")
   const [isSelected, setSelected] = useState(false)
-
   // Add to cart
 
   const [cartItems, setCartItems] = useState([]);
@@ -64,30 +63,6 @@ const Assets = () => {
     setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   }
-
-  const rangeSelector = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  async function getProducts() {
-    const { data } = await supabase.from("Product").select();
-    setProducts(data);
-  }
-
-  const [searchQuery, setSearchQuery]  = useState("")
-
-  const categoryHandler = (e) => {
-    setCategory(e.target.value);
-    setSelected(true);
-  };
-
-  const searchHandler = () => {
-    console.log(category)
-  };
 
   return (
     <>
@@ -185,6 +160,9 @@ const Assets = () => {
             ))
           }
         </div>
+      </div>
+      <div className="CartContainer">
+      <Cart cartItems={cartItems} updateQuantity={updateQuantity} removeFromCart={removeFromCart} />
       </div>
     </>
   );
