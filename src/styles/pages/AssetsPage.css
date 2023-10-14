@@ -1,0 +1,64 @@
+.AssetsPage {
+  display: flex;
+}
+.gridContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-top: 2rem;
+}
+
+.gridItem {
+  width: 280px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(102, 101, 107, 0.6);
+  border: 2px solid #ededed;
+  padding: 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.gridItem img {
+  height: 70%;
+  width: 260px;
+  border-radius: 4px;
+  border: 0;
+  padding: auto;
+}
+
+.gridItem p {
+  font-size: 20px;
+  font-style: underline;
+  margin-bottom: 1rem;
+}
+
+.item-price {
+  text-align: center;
+  margin: 1rem;
+  font-size: 30px;
+}
+
+.gridItem button {
+  bottom: 10px;
+  width: 260px;
+  margin: auto;
+  padding: 10px 0px;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  transition-duration: 0.5s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+#productTitle {
+  font-weight: bold;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReorderIcon from "@mui/icons-material/Reorder";
 import { Link } from "react-router-dom";
-import "../styles/Navbar.css";
+import "../styles/components/Navbar.css";
 import logo from "../../public/assets/logos/coinwave.png";
 
 const Navbar = () => {
@@ -10,6 +10,7 @@ const Navbar = () => {
   const toggleNavbar = () => {
     setOpenLinks(!openLinks);
   };
+  
   return (
     <div className="navbar">
       <div className="leftSide" id={openLinks ? "open" : "close"}> {/*The left side of the nav bar*/}
@@ -18,7 +19,6 @@ const Navbar = () => {
           <div className="hiddenLinks">           {/*Hidden links for small-sized layout*/ }
             <Link to={"/"}>Home</Link>
             <Link to={"/assetspage"}>Assets</Link>
-            <Link to={"/cart"}>My Cart</Link>
             <Link to={"/transactions"}>History</Link>
             <Link to={"/about"}>About Us</Link>
             <Link to={"/login"}>
@@ -30,7 +30,6 @@ const Navbar = () => {
       <div className="rightSide">           {/* Links to different pages*/}
         <Link to={"/"}>Home</Link>
         <Link to={"/assetspage"}>Assets</Link>
-        <Link to={"/cart"}>My Cart</Link>
         <Link to={"/transactions"}>History</Link>
         <Link to={"/about"}>About Us</Link>
         <Link to={"/login"}>

@@ -1,171 +1,142 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "../styles/AssetsPage.css";
-import Sidebar from "../components/Sidebar";
-import item1 from "../../public/assets/images/assetsPageImages/item1.jpg";
-import item2 from "../../public/assets/images/assetsPageImages/item2.jpg";
-import item3 from "../../public/assets/images/assetsPageImages/item3.jpg";
-import item4 from "../../public/assets/images/assetsPageImages/item4.jpg";
-import item5 from "../../public/assets/images/assetsPageImages/item5.jpg";
-import item6 from "../../public/assets/images/assetsPageImages/item6.jpg";
-import item7 from "../../public/assets/images/assetsPageImages/item7.jpg";
-import item8 from "../../public/assets/images/assetsPageImages/item8.jpg";
-import item9 from "../../public/assets/images/assetsPageImages/item9.jpg";
-import item10 from "../../public/assets/images/assetsPageImages/item10.jpg";
-import item11 from "../../public/assets/images/assetsPageImages/item11.jpg";
-import item12 from "../../public/assets/images/assetsPageImages/item12.jpg";
-import Cart from "./Cart";
+import React, {useContext, useEffect, useState} from "react";
+import "../styles/pages/AssetsPage.css";
+import { createClient } from "@supabase/supabase-js";
+import { Slider } from "@mui/material";
+import "../styles/components/Sidebar.css";
+import searchIcon from "../../public/assets/images/search-svgrepo-com.svg";
+
+const supabase = createClient("https://bjihaznrhkskpfiyimdr.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqaWhhem5yaGtza3BmaXlpbWRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY5MDE0ODQsImV4cCI6MjAxMjQ3NzQ4NH0.2gJLsyOSXl2uLEZ0vJO3xWr7Kod3ddtqfkmR8tiM4J8", { db: { schema: "Marketplace"}});
+
 
 const Assets = () => {
-  const [cartItems, setCartItems] = useState([]);
+  function addHandler(e) {
+    e.preventDefault();
+    alert(searchQuery);
+  }
+
+  const [products, setProducts] = useState([]);
+  const [value, setValue] = useState([0, 100]);
+  const [category, setCategory] = useState("")
+  const [isSelected, setSelected] = useState(false)
+
+  const rangeSelector = (event, newValue) => {
+    setValue(newValue);
+  };
 
   useEffect(() => {
-    const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
-    if (storedCartItems) {
-      setCartItems(storedCartItems);
-    }
+    getProducts();
   }, []);
 
-  function addHandler(e, item) {
-    e.preventDefault();
-    const existingItem = cartItems.find((cartItem) => cartItem.name === item.name);
-    if (existingItem) {
-      const updatedCartItems = cartItems.map((cartItem) =>
-        cartItem.name === existingItem.name ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-      );
-      setCartItems(updatedCartItems);
-      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-    } else {
-      setCartItems([...cartItems, { ...item, quantity: 1 }]);
-      
-    }
-    
+  async function getProducts() {
+    const { data } = await supabase.from("Product").select();
+    setProducts(data);
   }
 
-  function updateQuantity(item, quantityChange) {
-    const updatedCartItems = cartItems.map((cartItem) => {
-      if (cartItem.name === item.name) {
-        const newQuantity = cartItem.quantity + quantityChange;
-        return newQuantity > 0 ? { ...cartItem, quantity: newQuantity } : cartItem;
-      }
-      return cartItem;
-    });
+  const [searchQuery, setSearchQuery]  = useState("")
 
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-  }
+  const categoryHandler = (e) => {
+    setCategory(e.target.value);
+    setSelected(true);
+  };
 
-  function removeFromCart(item) {
-    const updatedCartItems = cartItems.filter((cartItem) => cartItem.name !== item.name);
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-  }
+  const searchHandler = () => {
+    console.log(category)
+  };
 
   return (
     <>
       <div className="AssetsPage">
-        <Sidebar />
-        <div className="gridContainer">
-          <div className="gridItem">
-            <img src={item1} alt="marketplace item" />
-            <p>BMW M4 at Dawn </p>
-            <div className="item-price"> $300</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "BMW M4 at Dawn", price: 300 })}>
-              Add to cart
+        <div className="Sidebar">
+          <div className="SearchBar">
+            <input
+                id="searchQueryInput"
+                type="text"
+                name="searchQueryInput"
+                placeholder="Search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button
+                id="searchQuerySubmit"
+                type="submit"
+                name="searchQuerySubmit"
+                onClick={searchHandler}
+            >
+              <img
+                  src={searchIcon}
+                  style={{ width: 24, height: 24 }}
+                  alt="searchIcon"
+              />
             </button>
           </div>
-          <div className="gridItem">
-            <img src={item2} alt="marketplace item" />
-            <p>Yamaha MT-07 in an empty parking lot</p>
-            <div className="item-price"> $12,000</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "Yamaha MT-07", price: 12000 })}>
-              Add to cart
-            </button>
-          </div>
-          <div className="gridItem">
-            <img src={item3} alt="marketplace item" />
-            <p>Audi car on an autumn road</p>
-            <div className="item-price"> $1,300</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "Audi car on an autumn road", price: 1300 })}>
-              Add to cart
-            </button>
-          </div>
-          <div className="gridItem">
-            <img src={item4} alt="marketplace item" />
-            <p>A vintage gameboy in a glass caser</p>
-            <div className="item-price"> $70</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "A vintage gameboy in a glass caser", price: 70 })}>
-              Add to cart
-            </button>
-          </div>
-          <div className="gridItem">
-            <img src={item5} alt="marketplace item" />
-            <p>Close-up vintage camera</p>
-            <div className="item-price"> $320</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "Close-up vintage camera", price: 320 })}>
-              Add to cart
-            </button>
-          </div>
-          <div className="gridItem">
-            <img src={item6} alt="marketplace item" />
-            <p>Black and silver nikon cameras</p>
-            <div className="item-price"> $825</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "Black and silver nikon cameras", price: 825 })}>
-              Add to cart
-            </button>
-          </div>
-          <div className="gridItem">
-            <img src={item7} alt="marketplace item" />
-            <p>Close-up Black Drone</p>
-            <div className="item-price"> $3,000</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "Close-up Black Drone", price: 3000 })}>
-              Add to cart
-            </button>
-          </div>
-          <div className="gridItem">
-            <img src={item8} alt="marketplace item" />
-            <p>Cat</p>
-            <div className="item-price"> $850</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "Cat", price: 850 })}>
-              Add to cart
-            </button>
-          </div>
-          <div className="gridItem">
-            <img src={item9} alt="marketplace item" />
-            <p>Cute dog no. 1</p>
-            <div className="item-price"> $400</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "Cute dog no. 1", price: 400 })}>
-              Add to cart
-            </button>
-          </div>
-          <div className="gridItem">
-            <img src={item10} alt="marketplace item" />
-            <p>Cute Dog no. 2</p>
-            <div className="item-price"> $360</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "Cute Dog no. 2", price: 360 })}>
-              Add to cart
-            </button>
-          </div>
-          <div className="gridItem">
-            <img src={item11} alt="marketplace item" />
-            <p>Burger</p>
-            <div className="item-price"> $3</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "Burger", price: 3 })}>
-              Add to cart
-            </button>
-          </div>
-          <div className="gridItem">
-            <img src={item12} alt="marketplace item" />
-            <p>Coca cola glass bottle</p>
-            <div className="item-price"> $110</div>
-            <button className="add-to-cart-btn" onClick={(e) => addHandler(e, { name: "Coca cola glass bottle", price: 110 })}>
-              Add to cart
-            </button>
+          <hr id="line" />
+          {/* Price selection section */}
+          <h2>Price Range</h2>
+          <Slider
+              value={value}
+              onChange={rangeSelector}
+              valueLabelDisplay="auto"
+              max={10000}
+          />
+          {value[0]} - {value[1]}
+          {/* End of price section */}
+          <hr id="line" />
+          {/* Categories selection section */}
+          <h1 id="filter">Categories</h1>
+          <div>
+            <label className="sidebar-label-container">
+              <input type="radio" value="" name="test" onChange={e => (categoryHandler(e))}/>
+              All
+            </label>
+
+            <label className="sidebar-label-container">
+              <input type="radio" value="1" name="test" onChange={e => (categoryHandler(e))} />
+              Vehicles
+            </label>
+
+            <label className="sidebar-label-container">
+              <input type="radio" value="2" name="test" onChange={e => (setCategory(e.target.value))}/>
+              Electronics
+            </label>
+
+            <label className="sidebar-label-container">
+              <input type="radio" value="3" name="test" onChange={e => (setCategory(e.target.value))}/>
+              Animals
+            </label>
+
+            <label className="sidebar-label-container">
+              <input type="radio" value="4" name="test" onChange={e => (setCategory(e.target.value))}/>
+              Food & Drinks
+            </label>
           </div>
         </div>
-      </div>
-      <div className="CartContainer">
-      <Cart cartItems={cartItems} updateQuantity={updateQuantity} removeFromCart={removeFromCart} />
+        <div className="gridContainer">
+          {
+                products?.filter( (product) => {
+                      if (searchQuery || category !== "") {
+                        if (searchQuery && category !== "") {
+                          return product.Product_Name.toLowerCase().includes(searchQuery.toLowerCase()) && category === product.Product_Category.toString();
+                        }
+                        if (searchQuery === "" && category !== "") {
+                          return category === product.Product_Category.toString();
+                        }
+                        return product.Product_Name.toLowerCase().includes(searchQuery.toLowerCase());
+                      }
+                      return true;
+                    }
+                ).map((product) => (
+                <div className="gridItem">
+                  <img src={product.Image_Link} alt="marketplace item" />
+                  <p id="productTitle">{product.Product_Name}</p>
+                  <p>{product.Product_Description}</p>
+                  <div className="item-price"> ${product.Product_Price}</div>
+                  <button className="add-to-cart-btn" onClick={addHandler}>
+                    Add to cart
+                  </button>
+                </div>
+            ))
+          }
+        </div>
       </div>
     </>
   );
