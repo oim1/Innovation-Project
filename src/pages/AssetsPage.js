@@ -108,18 +108,7 @@ const Assets = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
-            {/* <button
-                id="searchQuerySubmit"
-                type="submit"
-                name="searchQuerySubmit"
-                onClick={searchHandler}
-            >
-              <img
-                  src={searchIcon}
-                  style={{ width: 24, height: 24 }}
-                  alt="searchIcon"
-              />
-            </button> */}
+            
           </div>
          
           {/* Categories selection section */}
