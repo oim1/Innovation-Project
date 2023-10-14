@@ -40,11 +40,6 @@
   width: 250px;
 }
 
-#googlemaps {
-  display: block;
-  text-decoration: none;
-}
-
 .categoryButton {
   display: block;
   margin-left: 80px;
@@ -59,4 +54,8 @@
 .categoryButton:hover {
   cursor: pointer;
   color: white;
+}
+
+@media (max-width: 768px){
+  
 }

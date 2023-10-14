@@ -32,7 +32,7 @@ const Assets = () => {
   function addHandler(e, item) {
     e.preventDefault();
     const existingItem = cartItems.find((cartItem) => cartItem.name === item.name);
-    
+
     if (existingItem) {
       const updatedCartItems = cartItems.map((cartItem) =>
         cartItem.name === existingItem.name ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
@@ -66,6 +66,7 @@ const Assets = () => {
   }
 
   // Add to cart
+  
   const rangeSelector = (event, newValue) => {
     setValue(newValue);
   };

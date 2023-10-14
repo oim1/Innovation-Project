@@ -13,33 +13,21 @@ const Navbar = () => {
   
   return (
     <div className="navbar">
-      <div className="leftSide" id={openLinks ? "open" : "close"}> {/*The left side of the nav bar*/}
         <Link to={"/"}>
           <img src={logo} alt="coinwave logo" /> {/*CoinWAVE logo*/}
-          <div className="hiddenLinks">           {/*Hidden links for small-sized layout*/ }
-            <Link to={"/"}>Home</Link>
-            <Link to={"/assetspage"}>Assets</Link>
-            <Link to={"/transactions"}>History</Link>
-            <Link to={"/cart"}>My Cart</Link>
-            <Link to={"/about"}>About Us</Link>
-            <Link to={"/login"}>
-              <button> Log in </button>
-            </Link>
-          </div>
         </Link>
-      </div>
-      <div className="rightSide">           {/* Links to different pages*/}
-        <Link to={"/"}>Home</Link>
-        <Link to={"/assetspage"}>Assets</Link>
-        <Link to={"/transactions"}>History</Link>
-        <Link to={"/cart"}>My Cart</Link>
-        <Link to={"/about"}>About Us</Link>
-        <Link to={"/login"}>
+
+          <ReorderIcon className="hamburger" onClick={toggleNavbar} />
+
+      <div className="rightSide" id={openLinks ? "open" : "close"}>           {/* Links to different pages*/}
+        <Link to={"/"} className="links">Home</Link>
+        <Link to={"/assetspage"} className="links">Assets</Link>
+        <Link to={"/transactions"} className="links">History</Link>
+        <Link to={"/cart"} className="links">My Cart</Link>
+        <Link to={"/about"} className="links">About Us</Link>
+        <Link to={"/login"} className="links">
           <button> Log in </button>{" "}
         </Link>
-        <button id="hamburger" onClick={toggleNavbar}>  {/* Hamburger button for small-sized layouts */}
-          <ReorderIcon />
-        </button>
       </div>
     </div>
   );

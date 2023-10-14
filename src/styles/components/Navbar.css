@@ -1,109 +1,110 @@
 .navbar {
-  width: 100%;
-  height: 90px;
-  border: 2px solid #cfcaca;
   display: flex;
-  flex-direction: row;
-}
-
-.navbar .leftSide {
-  flex: 50%;
-  height: 100%;
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding-left: 150px;
+  width: 100%;
+  border: 2px solid #cfcaca;
+  margin: auto  ;
 }
 
-.navbar .leftSide img {
+.navbar img {
   width: 120px;
   height: 100%;
   border-radius: 10px;
+  margin-left: 20px;
   box-shadow: 2px;
 }
 
 .navbar .rightSide {
   display: flex;
+
+
   flex: 100%;
+  width: 100%;
   height: 100%;
   align-items: center;
   justify-content: right;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar a {
+.navbar .rightSide a {
+  display: block;
   color: black;
+
   text-decoration: none;
-  margin: 20px;
+  margin: 10px;
+  padding: 10px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: light;
+}
+
+.navbar .rightSide a:hover {
+  background-color: #cfcaca;
 }
 
 .navbar .rightSide a button {
-  font: inherit;
+  font:inherit;
+  font-weight: bold;
+  padding: 5px;
   width: 120px;
   height: 40px;
-  background-color: white;
+  background-color: rgb(248, 248, 170);
   border-radius: 25px;
-  border: 1px black solid;
+  border: 2px black solid;
   cursor: pointer;
 }
 
-.navbar .rightSide svg {
-  font-size: 40px;
-}
-
-.navbar #open {
-  padding-left: 0px;
-}
-.navbar #open img {
+.navbar svg {
   display: none;
+  cursor: pointer;
+  font-size: 3rem;
+
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: auto;
+  margin: auto;
+  justify-content: space-between;
 }
 
-.navbar #close img {
-  display: inherit;
-}
-
-.navbar #open .hiddenLinks {
-  display: inherit;
-  margin-left: 20px;
-}
-.navbar #close .hiddenLinks {
-  display: none;
-}
-
-.navbar #open a {
-  margin: 5px;
-}
-
-@media only screen and (max-width: 900px) {  /*Layout when the maximum width of the screen is 900pixels*/
-  .navbar .rightSide a {
-    width: 70px;
+@media screen and (max-width: 768px) {  /*Layout when the maximum width of the screen is 600pixels*/
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .navbar .leftSide {
-    padding-left: 50px;
-  }
-}
 
-@media only screen and (max-width: 600px) {  /*Layout when the maximum width of the screen is 600pixels*/
-  .navbar .rightSide a {  /*Hide the navigation links on the right side*/
+  .navbar .hamburger { /*Show the hamburger button*/
+    display: flex;
+    margin: 10px;
+  }
+
+   .navbar #close {
     display: none;
-  }
+    flex-direction: column;
+    width: 100%;
+  } 
 
-  .navbar .rightSide {
-    justify-content: flex-end;
-    padding-right: 50px;
-  }
+  .navbar #open {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    cursor: pointer;
 
-  .navbar .rightSide #hamburger { /*Show the hamburger button*/
-    display: inherit;
+  } 
+
+  .navbar .rightSide #open a{
+    text-align: center;
+    margin: 2rem;
   }
+  
 }
 
-@media only screen and (min-width: 600px) { /*Layout when the minimum width of the screen is 600pixels*/
-  .navbar .rightSide #hamburger {
+@media only screen and (min-width: 768px) { /*Layout when the minimum width of the screen is 600pixels*/
+  .navbar .hamburger {
     display: none;  /*Hide the hamburger button*/
-  }
-
-  .hiddenLinks {
-    display: none;
   }
 }
