@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-import "../styles/Transactions.css";
+import "../styles/pages/Transactions.css";
 
 const Transactions = () => {                {/*Dummy data creation function*/}
   function createData(orderID, orderItem, orderDate, orderPrice, orderStatus) {
