@@ -7,6 +7,7 @@
   justify-content: space-around;
   margin-left: auto;
   margin-top: 2rem;
+  margin-bottom: auto;
 }
 
 .gridItem {
@@ -15,9 +16,16 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 0 40px rgba(102, 101, 107, 0.6);
   border: 2px solid #ededed;
-  padding: 20px;
+  border-radius: 20px;
+  padding: 20px 20px 60px 20px;
   margin: 10px;
   cursor: pointer;
+}
+
+.gridItem:hover
+{
+  transform: scale(1.02);
+  transition: transform 0.3s;
 }
 
 .gridItem img {
@@ -32,6 +40,7 @@
   font-size: 20px;
   font-style: underline;
   margin-bottom: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .item-price {
@@ -40,7 +49,7 @@
   font-size: 30px;
 }
 
-.gridItem button {
+.add-to-cart-btn {
   bottom: 10px;
   width: 260px;
   margin: auto;
@@ -61,4 +70,93 @@
 }
 #productTitle {
   font-weight: bold;
+}
+
+/* Styling for the shopping cart */
+/* Styling for the shopping cart */
+.cart {
+  border: 2px solid #000000; /* Border color */
+  border-radius: 10px; /* Rounded corners */
+  padding: 70px;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #f8f8f8;
+}
+
+
+/* Heading style */
+.cart h2 {
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 10px;
+  margin-top:-30px;
+  text-align: center;
+  color: #007bff; /* Heading color */
+}
+
+/* List style */
+.cart ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Cart item style */
+.cart li {
+  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Button style */
+.cart button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 7px;
+  cursor: pointer;
+  margin: 0 5px;
+  border-radius: 5px; /* Rounded corners */
+}
+
+.cart .addremove
+{
+  padding: 2px 7px 2px 7px;
+   margin: 0 10px 0 8px; 
+}
+
+.cart .Remove {
+  background-color: #eb8157;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 5px; /* Rounded corners */
+}
+
+.cart .Remove:hover {
+  background-color: #d32f2f;
+}
+
+.cart .addremove:hover
+{
+  background-color: #06619e;
+}
+
+.cart .details {
+  font-size: 20px;
+  display: inline-block;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.cart .total
+{
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: bisque;
+  padding:10px;
+  border-radius: 20px;
 }

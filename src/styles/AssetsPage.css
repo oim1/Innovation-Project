@@ -62,3 +62,15 @@
 #productTitle {
   font-weight: bold;
 }
+
+#addremove {
+  margin-left: 10px; /* Adjust as needed */
+  background-color: #beb164;
+  border-radius: 10px;
+}
+
+#Remove
+{
+  background-color: #8d5915;
+  border-radius: 10px;  
+}
