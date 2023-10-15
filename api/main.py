@@ -22,11 +22,10 @@ app.add_middleware(
 
 # Database configuration
 db_config = {
-    'host': '127.0.0.1',
+    'host': 'localhost',
     'user': 'root',
-    'passwd': 'root',
-    'db': 'marketplace',
-    'port': 8001,
+    'password': 'quangminh6624',
+    'db': 'cos30049',
 }
 
 # Create a connection to the database
@@ -53,6 +52,27 @@ def read_item():
     cursor.close()
     product = json.dumps(result)
     return product
+
+@app.get("/products/")
+def get_items():
+    try:
+        connection = mysql.connector.connect(**db_config)# Establish a database connection        
+        cursor = connection.cursor()# Create a cursor to execute SQL queries
+        query = "SELECT * FROM Products"# Define the SQL query to retrieve data (e.g., all students)
+        cursor.execute(query)# Execute the SQL query
+        
+        result = cursor.fetchall()# Fetch all the rows
+        
+        products = [dict(zip(cursor.column_names, row)) for row in result]# Convert the result to a list of dictionaries
+        # Close the cursor and the database connection
+        cursor.close()
+        connection.close()
+    except ZeroDivisionError:
+        raise HTTPException(status_code=400, detail="File not found")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    else:
+        return products
 
 
 

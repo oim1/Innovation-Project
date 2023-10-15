@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { createClient } from "@supabase/supabase-js";
+import axios from 'axios'
 
 import "../styles/components/Sidebar.css";
 import "../styles/pages/AssetsPage.css";
@@ -16,20 +17,22 @@ const Assets = () => {
     alert(searchQuery);
   }
 
+
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("")
   const [isSelected, setSelected] = useState(false)
+  const [searchQuery, setSearchQuery]  = useState("")
 
   useEffect(() => {
     getProducts();
   }, []);
 
+  //Retrieve products data from database
   async function getProducts() {
     const { data } = await supabase.from("Product").select();
+    //const { data } = await axios.get("http://127.0.0.1:8000/products/");
     setProducts(data);
   }
-
-  const [searchQuery, setSearchQuery]  = useState("")
 
   const categoryHandler = (e) => {
     setCategory(e.target.value);
