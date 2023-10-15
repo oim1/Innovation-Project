@@ -12,6 +12,7 @@ const supabase = createClient("https://bjihaznrhkskpfiyimdr.supabase.co", "eyJhb
 
 
 const Assets = () => {
+  
   function addHandler(e) {
     e.preventDefault();
     alert(searchQuery);
@@ -22,6 +23,7 @@ const Assets = () => {
   const [category, setCategory] = useState("")
   const [isSelected, setSelected] = useState(false)
   const [searchQuery, setSearchQuery]  = useState("")
+  const [openSidebar, setOpenSidebar] = useState(false);
 
   useEffect(() => {
     getProducts();
@@ -29,8 +31,8 @@ const Assets = () => {
 
   //Retrieve products data from database
   async function getProducts() {
-    const { data } = await supabase.from("Product").select();
-    //const { data } = await axios.get("http://127.0.0.1:8000/products/");
+    //const { data } = await supabase.from("Product").select();
+    const { data } = await axios.get("http://127.0.0.1:8000/products/");
     setProducts(data);
   }
 
@@ -39,8 +41,7 @@ const Assets = () => {
     setSelected(true);
   };
 
-  const [openSidebar, setOpenSidebar] = useState(false);
-
+ 
   const toggleSidebar = () => {
     setOpenSidebar(!openSidebar);
   };

@@ -37,22 +37,6 @@ class Product(BaseModel):
     product_price: str
     image_link: str
 
-@app.get("/product/")
-def read_item():
-    cursor = conn.cursor()
-    query = "SELECT * FROM product"
-    cursor.execute(query)
-    rows = cursor.fetchall()
-    result = []
-    for row in rows:
-        d = {}
-    for i, col in enumerate(cursor.description):
-        d[col[0]] = row[i]
-    result.append(d)
-    cursor.close()
-    product = json.dumps(result)
-    return product
-
 @app.get("/products/")
 def get_items():
     try:
@@ -67,14 +51,71 @@ def get_items():
         # Close the cursor and the database connection
         cursor.close()
         connection.close()
-    except ZeroDivisionError:
-        raise HTTPException(status_code=400, detail="File not found")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     else:
         return products
 
 
+@app.get("/getTransactions/")
+def get_transaction():
+    try:
+        connection = mysql.connector.connect(**db_config)
+        cursor = connection.cursor()
+        query = "SELECT * FROM Transaction"
+        
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+        transactions = [dict(zip(cursor.column_names, row)) for row in result]
+        
+        cursor.close()
+        connection.close()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    else:
+        return transactions
+    
+@app.get("/getTransactionItem/{Trans_ID}")
+def get_Transaction_Item(Trans_ID : int):
+    try:
+
+        connection = mysql.connector.connect(**db_config)
+        cursor = connection.cursor()
+
+
+        query = f"SELECT * FROM TransactionItem where Trans_ID = {Trans_ID}"
+        
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+        transactionsItem = [dict(zip(cursor.column_names, row)) for row in result]
+        
+        cursor.close()
+        connection.close()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    else:
+        return transactionsItem
+    
+@app.post("/createtransactions/{trans_id}")
+def create_transaction():
+    try:
+        connection = mysql.connector.connect(**db_config)
+        cursor = connection.cursor()
+        query = "SELECT * FROM transaction"#
+        cursor.execute(query)
+        
+        result = cursor.fetchall()
+        
+        products = [dict(zip(cursor.column_names, row)) for row in result]
+
+        cursor.close()
+        connection.close()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    else:
+        return products
 
 @app.get("/chainData")
 async def getData():
@@ -139,7 +180,3 @@ async def getData():
     print("Waiting for transaction to finish...")
     transaction_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash)
     print(f"Done! Contract deployed to {transaction_receipt.contractAddress}")
-
-
-
-uvicorn.run(app, host="localhost", port=8000)
