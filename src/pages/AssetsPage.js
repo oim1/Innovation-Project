@@ -11,6 +11,10 @@ const supabase = createClient("https://bjihaznrhkskpfiyimdr.supabase.co", "eyJhb
 const Assets = () => {
   const [cart, setCart] = useState([]);
 
+  function addHandler(e) {
+    e.preventDefault();
+    alert(searchQuery);
+  }
   function addToCart(item) {
     const existingItem = cart.find((cartItem) => cartItem.Product_Name === item.Product_Name);
 
@@ -164,19 +168,33 @@ const Assets = () => {
           </div>
         </div>
         <div className="gridContainer">
-        {products.map((product) => (
-          <div className="gridItem" key={product.id}>
-            <img src={product.Image_Link} alt="marketplace item" />
-            <p id="productTitle">{product.Product_Name}</p>
-            <p>{product.Product_Description}</p>
-            <div className="item-price"> ${product.Product_Price}</div>
-            <button className="add-to-cart-btn" onClick={() => addToCart(product)}>
-              Add to cart
-            </button>
-          </div>
-        ))}
-      </div>
-      <div className="cart">
+          {
+                products?.filter( (product) => {
+                      if (searchQuery || category !== "") {
+                        if (searchQuery && category !== "") {
+                          return product.Product_Name.toLowerCase().includes(searchQuery.toLowerCase()) && category === product.Product_Category.toString();
+                        }
+                        if (searchQuery === "" && category !== "") {
+                          return category === product.Product_Category.toString();
+                        }
+                        return product.Product_Name.toLowerCase().includes(searchQuery.toLowerCase());
+                      }
+                      return true;
+                    }
+                ).map((product) => (
+                  <div className="gridItem" key={product.id}>
+                    <img src={product.Image_Link} alt="marketplace item" />
+                    <p id="productTitle">{product.Product_Name}</p>
+                    <p>{product.Product_Description}</p>
+                    <div className="item-price"> ${product.Product_Price}</div>
+                    <button className="add-to-cart-btn" onClick={() => addToCart(product)}>
+                      Add to cart
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              <div className="cart">
         <h2>Shopping Cart</h2>
         <ul>
         <div className="total">Total: ${totalAmount}</div>
@@ -198,5 +216,6 @@ const Assets = () => {
     </>
   );
 };
+
 
 export default Assets;
