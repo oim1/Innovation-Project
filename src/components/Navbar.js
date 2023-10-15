@@ -23,9 +23,8 @@ const Navbar = () => {
         <Link to={"/"} className="links">Home</Link>
         <Link to={"/assetspage"} className="links">Assets</Link>
         <Link to={"/transactions"} className="links">History</Link>
-        <Link to={"/cart"} className="links">My Cart</Link>
         <Link to={"/about"} className="links">About Us</Link>
-        <Link to={"/login"} className="links">
+        <Link to={"/login"} >
           <button> Log in </button>{" "}
         </Link>
       </div>
