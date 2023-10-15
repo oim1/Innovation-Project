@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -8,9 +8,31 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
+import axios from 'axios'
+
 import "../styles/pages/Transactions.css";
 
 const Transactions = () => {                {/*Dummy data creation function*/}
+  
+  const [transactions, setTransactions] = useState([]);
+  const [transactionItems, setTransactionItems] = useState([]);
+
+  useEffect(() => {
+    getTransactions();
+    //getTransactionItems();
+  }, []);
+
+  //Retrieve products data from database
+  async function getTransactions() {
+    const { data } = await axios.get("http://127.0.0.1:8000/getTransactions/");
+    setTransactions(data);
+  }
+
+  // async function getTransactionItems() {
+  //   const { data } = await axios.get("http://127.0.0.1:8000/getTransactionsItem/1");
+  //   setTransactionItems(data);
+  // }
+
   function createData(orderID, orderItem, orderDate, orderPrice, orderStatus) {
     return { orderID, orderItem, orderDate, orderPrice, orderStatus };
   }
@@ -29,50 +51,46 @@ const Transactions = () => {                {/*Dummy data creation function*/}
   return (
     <div className="TransactionsPage">
       <h1>Past transactions</h1>
-
+      <div> {transactionItems} </div>
       <TableContainer component={Paper} className="table-container"> 
-        <Table
-          sx={{ minWidth: 650 }}
-          aria-label="simple table"
-          className="table-content"
-        >
+        <Table sx={{ minWidth: 650 }} aria-label="simple table" className="table-content">
           <TableHead className="table-header">   {/*Table Header*/}
             <TableRow>
-              <TableCell>Order ID</TableCell>
+              <TableCell>Transaction ID</TableCell>
               <TableCell className="header-item" align="right">
                 Products
               </TableCell>
               <TableCell className="header-item" align="right">
-                Order Date
+                Transaction Date
               </TableCell>
               <TableCell className="header-item" align="right">
                 Total Price
               </TableCell>
               <TableCell className="header-item" align="right">
-                Order Status
+                Transaction Status
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>                {/*Table data*/}
-            {rows.map((row) => (
+            {transactions.map((transaction) => (
               <TableRow
-                key={row.orderID}
+                key={transaction.Trans_ID}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.orderID}
+                  {transaction.Trans_ID}
                 </TableCell>
                 <TableCell className="table-item" align="right">
-                  {row.orderItem}
+                  Item
                 </TableCell>
                 <TableCell className="table-item" align="right">
-                  {row.orderDate}
+                  {transaction.Trans_Date}
                 </TableCell>
                 <TableCell className="table-item" align="right">
-                  {row.orderPrice}
+                  Price
                 </TableCell>
                 <TableCell className="table-item" align="right">
-                  {row.orderStatus}
+                  {transaction.Trans_Status}
                 </TableCell>
               </TableRow>
             ))}
@@ -84,3 +102,4 @@ const Transactions = () => {                {/*Dummy data creation function*/}
 };
 
 export default Transactions;
+

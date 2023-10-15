@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { createClient } from "@supabase/supabase-js";
+import axios from 'axios'
 
 import "../styles/components/Sidebar.css";
 import "../styles/pages/AssetsPage.css";
@@ -11,85 +12,36 @@ const supabase = createClient("https://bjihaznrhkskpfiyimdr.supabase.co", "eyJhb
 
 
 const Assets = () => {
+  
   function addHandler(e) {
     e.preventDefault();
     alert(searchQuery);
   }
 
+
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("")
   const [isSelected, setSelected] = useState(false)
-
-  // // Add to cart
-  // const [cartItems, setCartItems] = useState([]);
-
-  // useEffect(() => {
-  //   const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
-  //   if (storedCartItems) {
-  //     setCartItems(storedCartItems);
-  //   }
-  // }, []);
-
-  // function addHandler(e, item) {
-  //   e.preventDefault();
-  //   const existingItem = cartItems.find((cartItem) => cartItem.name === item.name);
-
-  //   if (existingItem) {
-  //     const updatedCartItems = cartItems.map((cartItem) =>
-  //       cartItem.name === existingItem.name ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-  //     );
-  //     setCartItems(updatedCartItems);
-  //     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-  //   } 
-  //   else {
-  //     setCartItems([...cartItems, { ...item, quantity: 1 }]);
-  //   }
-
-  // }
-
-  // function updateQuantity(item, quantityChange) {
-  //   const updatedCartItems = cartItems.map((cartItem) => {
-  //     if (cartItem.name === item.name) {
-  //       const newQuantity = cartItem.quantity + quantityChange;
-  //       return newQuantity > 0 ? { ...cartItem, quantity: newQuantity } : cartItem;
-  //     }
-  //     return cartItem;
-  //   });
-
-  //   setCartItems(updatedCartItems);
-  //   localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-  // }
-
-  // function removeFromCart(item) {
-  //   const updatedCartItems = cartItems.filter((cartItem) => cartItem.name !== item.name);
-  //   setCartItems(updatedCartItems);
-  //   localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-  // }
-
-  // Add to cart
+  const [searchQuery, setSearchQuery]  = useState("")
+  const [openSidebar, setOpenSidebar] = useState(false);
 
   useEffect(() => {
     getProducts();
   }, []);
 
+  //Retrieve products data from database
   async function getProducts() {
-    const { data } = await supabase.from("Product").select();
+    //const { data } = await supabase.from("Product").select();
+    const { data } = await axios.get("http://127.0.0.1:8000/products/");
     setProducts(data);
   }
-
-  const [searchQuery, setSearchQuery]  = useState("")
 
   const categoryHandler = (e) => {
     setCategory(e.target.value);
     setSelected(true);
   };
 
-  const searchHandler = () => {
-    console.log(category)
-  };
-
-  const [openSidebar, setOpenSidebar] = useState(false);
-
+ 
   const toggleSidebar = () => {
     setOpenSidebar(!openSidebar);
   };
@@ -108,18 +60,7 @@ const Assets = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
-            {/* <button
-                id="searchQuerySubmit"
-                type="submit"
-                name="searchQuerySubmit"
-                onClick={searchHandler}
-            >
-              <img
-                  src={searchIcon}
-                  style={{ width: 24, height: 24 }}
-                  alt="searchIcon"
-              />
-            </button> */}
+            
           </div>
          
           {/* Categories selection section */}
