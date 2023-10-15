@@ -12,18 +12,75 @@ const supabase = createClient("https://bjihaznrhkskpfiyimdr.supabase.co", "eyJhb
 
 
 const Assets = () => {
-  
+  const [cart, setCart] = useState([]);
+
   function addHandler(e) {
     e.preventDefault();
     alert(searchQuery);
   }
-
-
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("")
   const [isSelected, setSelected] = useState(false)
   const [searchQuery, setSearchQuery]  = useState("")
   const [openSidebar, setOpenSidebar] = useState(false);
+  
+  function addToCart(item) {
+    const existingItem = cart.find((cartItem) => cartItem.Product_Name === item.Product_Name);
+
+    if (existingItem) {
+      const updatedCart = cart.map((cartItem) =>
+        cartItem.Product_Name === existingItem.Product_Name
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      );
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, { ...item, quantity: 1 }]);
+    }
+  }
+  function incrementQuantity(item) {
+    const updatedCart = cart.map((cartItem) => {
+      if (cartItem.Product_Name === item.Product_Name) {
+        const newQuantity = cartItem.quantity + 1;
+        return newQuantity > 0 ? { ...cartItem, quantity: newQuantity } : cartItem;
+      }
+      return cartItem;
+    });
+  
+    setCart(updatedCart);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+  }
+
+  function decrementQuantity(item) {
+    const updatedCart = cart.map((cartItem) => {
+      if (cartItem.Product_Name === item.Product_Name) {
+        const newQuantity = cartItem.quantity - 1;
+        return newQuantity > 0 ? { ...cartItem, quantity: newQuantity } : cartItem;
+      }
+      return cartItem;
+    });
+  
+    setCart(updatedCart);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+  }
+
+  function removeFromCart(item) {
+    const updatedCart = cart.filter((cartItem) => cartItem.Product_Name !== item.Product_Name);
+    setCart(updatedCart);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+  }
+
+  function calculateTotal() {
+    let total = 0;
+    for (const item of cart) {
+      total += item.Product_Price * item.quantity;
+    }
+    return total;
+  }
+
+  const rangeSelector = (event, newValue) => {
+    setValue(newValue);
+  };
 
   useEffect(() => {
     getProducts();
@@ -36,12 +93,13 @@ const Assets = () => {
     setProducts(data);
   }
 
+  const totalAmount = calculateTotal();
+
   const categoryHandler = (e) => {
     setCategory(e.target.value);
     setSelected(true);
   };
 
- 
   const toggleSidebar = () => {
     setOpenSidebar(!openSidebar);
   };
@@ -60,7 +118,6 @@ const Assets = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
-            
           </div>
          
           {/* Categories selection section */}
@@ -97,7 +154,6 @@ const Assets = () => {
             </label>
           </div>
         </div>
-
         <div className="gridContainer">
           {
                 products?.filter( (product) => {
@@ -113,22 +169,38 @@ const Assets = () => {
                       return true;
                     }
                 ).map((product) => (
+                  <div className="gridItem" key={product.id}>
+                    <img src={product.Image_Link} alt="marketplace item" />
+                    <p id="productTitle">{product.Product_Name}</p>
+                    <p>{product.Product_Description}</p>
+                    <div className="item-price"> ${product.Product_Price}</div>
+                    <button className="add-to-cart-btn" onClick={() => addToCart(product)}>
+                      Add to cart
+                    </button>
+                  </div>
+                ))}
+              </div>
 
-                <div className="gridItem">
-                  <img src={product.Image_Link} alt="marketplace item" />
-                  <p id="productTitle">{product.Product_Name}</p>
-                  <p>{product.Product_Description}</p>
-                  <div className="item-price"> ${product.Product_Price}</div>
-                  <button className="add-to-cart-btn" onClick={addHandler}>
-                    Add to cart
-                  </button>
-                </div>
-            ))
-          }
-        </div>
+              <div className="cart">
+        <h2>Shopping Cart</h2>
+        <ul>
+        <div className="total">Total: ${totalAmount}</div>
+        <br></br>
+          {cart.map((item) => (
+            <li key={item.id}>
+              <div class="details">{item.Product_Name}  ${item.Product_Price}</div>
+              <button class="addremove" onClick={() => incrementQuantity(item)}>+</button>
+              {item.quantity}
+              <button class="addremove" onClick={() => decrementQuantity(item)}>-</button>
+              <button class="Remove" onClick={() => removeFromCart(item)}>Remove</button>
+            </li>
+          ))}
+        </ul>
+        
+      </div>
+
       </div>
     </>
   );
 };
-
 export default Assets;

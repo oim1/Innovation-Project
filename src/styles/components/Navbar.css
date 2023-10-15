@@ -5,6 +5,7 @@
   width: 100%;
   border: 2px solid #cfcaca;
   margin: auto  ;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .navbar img {
@@ -107,3 +108,5 @@
     display: none;  /*Hide the hamburger button*/
   }
 }
+
+
