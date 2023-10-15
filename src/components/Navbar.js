@@ -27,11 +27,13 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-      <div className="rightSide">           {/* Links to different pages*/}
+      <div className="rightSide">
+        <div class = "List">         {/* Links to different pages*/}
         <Link to={"/"}>Home</Link>
         <Link to={"/assetspage"}>Assets</Link>
         <Link to={"/transactions"}>History</Link>
         <Link to={"/about"}>About Us</Link>
+        </div>
         <Link to={"/login"}>
           <button> Log in </button>{" "}
         </Link>

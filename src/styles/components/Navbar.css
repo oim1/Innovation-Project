@@ -21,13 +21,17 @@
   box-shadow: 2px;
 }
 
+.List
+{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .navbar .rightSide {
   display: flex;
   flex: 100%;
   height: 100%;
   align-items: center;
   justify-content: right;
-}
+  }
 
 .navbar a {
   color: black;
@@ -41,11 +45,24 @@
   font: inherit;
   width: 120px;
   height: 40px;
-  background-color: white;
+  background-color: rgb(249, 250, 193);
   border-radius: 25px;
   border: 1px black solid;
   cursor: pointer;
 }
+
+.navbar .rightSide a button:hover {
+  font: inherit;
+  width: 120px;
+  height: 40px;
+  background-color: rgb(241, 233, 184);
+  border-radius: 25px;
+  border: 1px black solid;
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+
 
 .navbar .rightSide svg {
   font-size: 40px;
