@@ -37,7 +37,7 @@ class Product(BaseModel):
     product_price: str
     image_link: str
 
-@app.get("/products/")
+@app.get("/getProducts/")
 def get_items():
     try:
         connection = mysql.connector.connect(**db_config)# Establish a database connection        
@@ -97,25 +97,6 @@ def get_Transaction_Item(Trans_ID : int):
         raise HTTPException(status_code=500, detail=str(e))
     else:
         return transactionsItem
-    
-@app.post("/createtransactions/{trans_id}")
-def create_transaction():
-    try:
-        connection = mysql.connector.connect(**db_config)
-        cursor = connection.cursor()
-        query = "SELECT * FROM transaction"#
-        cursor.execute(query)
-        
-        result = cursor.fetchall()
-        
-        products = [dict(zip(cursor.column_names, row)) for row in result]
-
-        cursor.close()
-        connection.close()
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-    else:
-        return products
 
 @app.get("/chainData")
 async def getData():

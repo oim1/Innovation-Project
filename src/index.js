@@ -6,7 +6,6 @@ import Assets from "./pages/AssetsPage";
 import About from "./pages/AboutPage";
 import Transactions from "./pages/TransactionsPage";
 import LoginPage from "./pages/LoginPage";
-import Cart from "./pages/Cart";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";

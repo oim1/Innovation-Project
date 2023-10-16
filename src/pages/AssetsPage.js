@@ -6,8 +6,6 @@ import axios from 'axios'
 import "../styles/components/Sidebar.css";
 import "../styles/pages/AssetsPage.css";
 
-import searchIcon from "../../public/assets/images/search-svgrepo-com.svg";
-
 const supabase = createClient("https://bjihaznrhkskpfiyimdr.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqaWhhem5yaGtza3BmaXlpbWRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY5MDE0ODQsImV4cCI6MjAxMjQ3NzQ4NH0.2gJLsyOSXl2uLEZ0vJO3xWr7Kod3ddtqfkmR8tiM4J8", { db: { schema: "Marketplace"}});
 
 
@@ -18,12 +16,30 @@ const Assets = () => {
     e.preventDefault();
     alert(searchQuery);
   }
+
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("")
   const [isSelected, setSelected] = useState(false)
   const [searchQuery, setSearchQuery]  = useState("")
   const [openSidebar, setOpenSidebar] = useState(false);
+
+  //Retrieve products data from database
+  async function getProducts() {
+    const { data } = await axios.get("http://127.0.0.1:8000/getProducts/");
+    setProducts(data);
+  }
+
+  const categoryHandler = (e) => {
+    setCategory(e.target.value);
+    setSelected(true);
+  };
+
+  const toggleSidebar = () => {
+    setOpenSidebar(!openSidebar);
+  };
+
   
+  //Cart function
   function addToCart(item) {
     const existingItem = cart.find((cartItem) => cartItem.Product_Name === item.Product_Name);
 
@@ -78,31 +94,19 @@ const Assets = () => {
     return total;
   }
 
-  const rangeSelector = (event, newValue) => {
-    setValue(newValue);
-  };
+  const totalAmount = calculateTotal();
+
+  function checkoutHandler(event) {
+    event.preventDefault();
+    alert("Cheked out!");
+  }
+  //end of Cart function
 
   useEffect(() => {
     getProducts();
   }, []);
 
-  //Retrieve products data from database
-  async function getProducts() {
-    //const { data } = await supabase.from("Product").select();
-    const { data } = await axios.get("http://127.0.0.1:8000/products/");
-    setProducts(data);
-  }
-
-  const totalAmount = calculateTotal();
-
-  const categoryHandler = (e) => {
-    setCategory(e.target.value);
-    setSelected(true);
-  };
-
-  const toggleSidebar = () => {
-    setOpenSidebar(!openSidebar);
-  };
+  
 
   return (
     <>
@@ -198,7 +202,7 @@ const Assets = () => {
             }
           </ul>
           <div className="total">Total: ${totalAmount}</div>
-          <button className="checkout" type="submit" onClick={() => {alert("Checked out!")}}> Checkout</button>
+          <button className="checkout" onClick={(e) => checkoutHandler(e)}> Checkout</button>
         </div>
       </div>
     </>
