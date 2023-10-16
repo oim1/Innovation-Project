@@ -12,14 +12,12 @@ import axios from 'axios'
 
 import "../styles/pages/Transactions.css";
 
-const Transactions = () => {                {/*Dummy data creation function*/}
+const Transactions = () => {                
   
   const [transactions, setTransactions] = useState([]);
-  const [transactionItems, setTransactionItems] = useState([]);
 
   useEffect(() => {
     getTransactions();
-    //getTransactionItems();
   }, []);
 
   //Retrieve products data from database
@@ -28,30 +26,37 @@ const Transactions = () => {                {/*Dummy data creation function*/}
     setTransactions(data);
   }
 
-  // async function getTransactionItems() {
-  //   const { data } = await axios.get("http://127.0.0.1:8000/getTransactionsItem/1");
-  //   setTransactionItems(data);
-  // }
+  async function getTransactionItems(transaction){
+    const { items } = await axios.get(`http://127.0.0.1:8000/getTransactions/${transaction.Trans_ID}`)
+    
+    let prodList = ""
 
-  function createData(orderID, orderItem, orderDate, orderPrice, orderStatus) {
-    return { orderID, orderItem, orderDate, orderPrice, orderStatus };
+    items.map((Line) => {
+      prodlist += Line.Quantity + " x " + Line.Prod_ID + " ";
+    })
+
+    transaction.Trans_Prod = prodList
   }
 
+  // function createData(orderID, orderItem, orderDate, orderPrice, orderStatus) {
+  //   return { orderID, orderItem, orderDate, orderPrice, orderStatus };
+  // }
+
    {/*Creating dummy data*/}
-  const rows = [                       
-    createData("101", "Monitor", "02/09/2022`", "400$", "Completed"),
-    createData("102", "Game Pass", "01/09/2022", "360$", "Pending"),
-    createData("103", "Mouse", "31/08/2022", "1230$", "Pending"),
-    createData("104", "Bitcoin", "30/08/2022", "32$", "Completed"),
-    createData("105", "Ethereum", "29/08/2022", "40$", "Dispatched"),
-    createData("106", "The Weeknd's Album", "28/08/2022", "100$", "Completed"),
-    createData("107", "Gaming Keyboard", "27/08/2022", "140$", "Completed"),
-    createData("108", "Key chain", "26/08/2022", "900$", "Completed"),
-  ];
+  // const rows = [                       
+  //   createData("101", "Monitor", "02/09/2022`", "400$", "Completed"),
+  //   createData("102", "Game Pass", "01/09/2022", "360$", "Pending"),
+  //   createData("103", "Mouse", "31/08/2022", "1230$", "Pending"),
+  //   createData("104", "Bitcoin", "30/08/2022", "32$", "Completed"),
+  //   createData("105", "Ethereum", "29/08/2022", "40$", "Dispatched"),
+  //   createData("106", "The Weeknd's Album", "28/08/2022", "100$", "Completed"),
+  //   createData("107", "Gaming Keyboard", "27/08/2022", "140$", "Completed"),
+  //   createData("108", "Key chain", "26/08/2022", "900$", "Completed"),
+  // ];
+
   return (
     <div className="TransactionsPage">
-      <h1>Past transactions</h1>
-      <div> {transactionItems} </div>
+      <h1>Past transactions</h1>  
       <TableContainer component={Paper} className="table-container"> 
         <Table sx={{ minWidth: 650 }} aria-label="simple table" className="table-content">
           <TableHead className="table-header">   {/*Table Header*/}
@@ -81,7 +86,7 @@ const Transactions = () => {                {/*Dummy data creation function*/}
                   {transaction.Trans_ID}
                 </TableCell>
                 <TableCell className="table-item" align="right">
-                  Item
+                  Items
                 </TableCell>
                 <TableCell className="table-item" align="right">
                   {transaction.Trans_Date}

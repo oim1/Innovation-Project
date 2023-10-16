@@ -18,7 +18,6 @@ function LoginPage() {
   function handleChangeUsername(e) {
     setUsername(e.target.value);
   }
-
   function handleChangePassword(e) {
     setPassword(e.target.value);
   }
@@ -29,27 +28,20 @@ function LoginPage() {
       </Link>
       
       <form className="loginForm" onSubmit={handleSubmit}>
-        <h1> Sign in </h1>
-        <label for="username">Username</label>
-        <input
-          className="username"
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={handleChangeUsername}
-        />
-        <label for="password">Password</label>
-        <input
-          className="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={handleChangePassword}
-        />
-        <button className="loginButton" type="submit" onSubmit={handleSubmit}>
-          Log In
-        </button>
+        <div className="container"> 
+          <h1> Sign in </h1>
+          <label for="username">Username</label>
+          <input className="username" type="text" placeholder="Username" 
+            value={username} onChange={handleChangeUsername} />
+          <label for="password">Password</label>
+          <input className="password" type="password" placeholder="Password" 
+            value={password} onChange={handleChangePassword}/>
+          <button className="loginButton" type="submit" onSubmit={handleSubmit}>
+            Log In
+          </button>
+        </div>
       </form>
+
     </div>
   );
 }

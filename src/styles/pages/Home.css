@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+
 .HomePage {
   width: 100%;
   height: 74vh;
@@ -18,6 +20,7 @@ div .homeContainer {
 }
 
 #MainText {
+  font-family: 'Space Grotesk', sans-serif;
   display: block;
   margin: auto;
   margin-bottom: 0px;
