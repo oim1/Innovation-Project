@@ -1,25 +1,17 @@
-.loginPage {
-  width: 100%;
-  height: 74vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.loginPage img{
+img{
   width: 120px;
   height: 100%;
   border-radius: 10px;
   box-shadow: 2px;
 }
 
-.loginPage h1 {
+h1 {
   margin-bottom: 10px;
   padding: 0;
 }
 
-.loginPage .loginForm {
+.loginForm {
+  position: static;
   top: 50%;
   left: 50%;
   height: 350px;
@@ -29,25 +21,31 @@
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 20px rgba(8, 7, 16, 0.6);
-  padding: 50px 35px;
+  padding: 30px 35px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-form * {
+.loginForm * {
   color: #000000;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
 }
-label {
+
+.loginForm .container{
+  margin: 10px;
+  padding: auto;
+}
+
+.loginForm label {
   display: block;
   margin-top: 30px;
   font-size: 16px;
   font-weight: 500;
 }
 
-form input {
+.loginForm input {
   display: block;
   height: 50px;
   width: 100%;
@@ -59,9 +57,10 @@ form input {
   font-size: 14px;
   font-weight: 300;
 }
+
   .loginForm .loginButton {
-justify-self: center;
-  margin-top: 50px;
+  justify-self: center;
+  margin-top: 30px ;
   width: 100%;
   background-color: white;
   border: 2px solid black;
@@ -76,4 +75,15 @@ justify-self: center;
   .loginButton:hover {
   background-color: black;
   color: white;
+}
+
+@media only screen and (max-width: 768) {
+  .loginForm {
+    border: none;
+    box-shadow: none;
+  }
+
+  .loginForm input{
+    width: 100%;
+  }
 }
