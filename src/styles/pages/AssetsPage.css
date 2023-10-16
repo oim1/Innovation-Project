@@ -8,6 +8,7 @@
   flex-direction: row;
   margin-bottom: 20px;
   padding: auto;
+  border: 2px solid #ededed;
 }
 
 .gridContainer {
@@ -91,9 +92,11 @@
   display: block;
   border: 2px solid #000000; 
   border-radius: 10px; 
-  padding: 70px;
+  padding: 70px 70px 20px 70px;
   max-width: 500px;
+
   margin: 0 auto;
+  margin-bottom:10px;
   background-color: #f8f8f8;
 }
 
@@ -173,4 +176,35 @@
   background-color: bisque;
   padding:10px;
   border-radius: 20px;
+}
+
+.cart .checkout
+{
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  margin:10px;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px)
+{
+  .SearchBar
+  {
+    background-color: #000000;
+    width:auto;
+  }
+
+  .gridContainer {
+    display: none;
+    
+  }
+
+  .Categories
+  {
+    padding-bottom:15px;
+    margin-bottom:10px;
+  } 
 }

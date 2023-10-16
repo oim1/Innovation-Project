@@ -4,74 +4,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
 
-#page_header
-{
-    position:absolute;
-    top: 100px; 
-    left:0px;
-    right: 0px; 
-    background-color: #75809e; 
-    color: #000000; 
-         
-}
-
-.header
-{
-    font-family: 'Raleway', sans-serif;
-    font-size: 50px;
-    padding-top:20px;  
-}
-
-#page_header p
-{
-    font-size: 20px;
-    font-family: 'Ubuntu', sans-serif;
-    padding: 15px 60px 25px 60px;
-}
-
-.member1, .member2, .member3
-{
-    position:absolute;
-    left:10%;
-    right: 10%;
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 25px;     
-}
-
-.member1
-{
-    top: 42%;
-}
-
-.member2
-{
-    top: 64%;
-}
-
-.member3
-{
-    top: 86%;
-}
-
-#TeamMembers h1
-{
-    font-size: 180%;
-    font-family: 'Kanit', sans-serif;
-    float:left;
-    margin-left: 2.8%;
-    margin-bottom:5%;
-}
-
-#TeamMembers p
-{
-    font-size: 120%;
-    font-family: 'Titillium Web', sans-serif;
-    margin: 4.3%;
-    text-align: center;
-    padding:0 0 0 20%;   
-}
-
 .AboutPage {
   width: auto;
   display: flex;
@@ -88,6 +20,14 @@
   color: #000000;
 }
 
+.header
+{
+    font-family: 'Raleway', sans-serif;
+    font-size: 50px;
+    padding-top:20px;  
+}
+
+
 .header {
   font-size: 30px;
 }
@@ -101,10 +41,10 @@
   color: #000000;
   border-radius: 25px;
   border: 1px solid grey;
-  margin: 10px 15px;
-  padding: auto;
+  margin: 10px;
+  padding: 65px;
   width: 65%;
-  height: 200px;
+  height: 100px;
 }
 
 .TeamMembers {
@@ -115,14 +55,78 @@
 
 .TeamMembers h1 {
   font-size: 180%;
-  float: left;
-  margin-left: 2.8%;
-  margin-bottom: 5%;
+  float:inherit;
+  margin-top:-15px;
 }
 
 .TeamMembers p {
   font-size: 20px;
-  margin: 4.3%;
-  text-align: left;
-  padding: 0 0 0 20%;
+  text-align: justify;
+  margin-left:-20px;
+}
+
+@media screen and (max-width: 768px)
+{
+  .AboutPage {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+  }
+  
+  .page_header {
+    position: relative;
+    margin: auto;
+    padding-top: 5px;
+    background-color: #75809e;
+    border-radius: 10px;
+    color: #000000;
+  }
+
+.header
+{
+    font-family: 'Raleway', sans-serif;
+    font-size: 50px;
+    padding-top:20px;  
+}
+
+.header {
+  font-size: 30px;
+}
+
+.page_header p {
+  font-size: 20px;
+  margin:30px;
+}
+
+.member {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 25px;
+  border: 1px solid grey;
+  margin: 10px 15px;
+  padding: 65px;
+  width: auto;
+  height: auto;
+}
+
+.TeamMembers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TeamMembers h1 {
+  font-size: 180%;
+  float:inherit;
+  margin-top:-15px;
+}
+
+.TeamMembers p {
+  font-size: 20px;
+  text-align: justify;
+  margin-left:-30px;
+
+}
 }
