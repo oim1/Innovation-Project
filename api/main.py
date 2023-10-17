@@ -25,7 +25,7 @@ db_config = {
     'host': 'localhost',
     'user': 'root',
     'password': 'quangminh6624',
-    'db': 'cos30049',
+    'db': 'marketplace',
 }
 
 # Create a connection to the database
@@ -98,8 +98,8 @@ def get_Transaction_Item(Trans_ID : int):
     else:
         return transactionsItem
 
-@app.get("/chainData")
-async def getData():
+@app.get("/deployContract")
+async def deploy_contract():
 
     w3 = Web3(Web3.HTTPProvider("HTTP://127.0.0.1:7545"))
 
@@ -161,3 +161,4 @@ async def getData():
     print("Waiting for transaction to finish...")
     transaction_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash)
     print(f"Done! Contract deployed to {transaction_receipt.contractAddress}")
+    return "Contract deployed successfully"
