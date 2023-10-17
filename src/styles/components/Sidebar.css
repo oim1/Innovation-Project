@@ -98,7 +98,7 @@
   transform: rotate(45deg);
 }
 
-@media (max-width: 768px){
+@media (max-width: 820px){
   .Sidebar#close{
     width: 4rem;
   }

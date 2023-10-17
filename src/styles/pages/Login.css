@@ -11,9 +11,8 @@ h1 {
 }
 
 .loginForm {
-  position: static;
-  top: 50%;
-  left: 50%;
+  position: relative;
+  margin: auto;
   height: 350px;
   width: 400px;
   background-color: rgba(255, 255, 255, 0.13);
@@ -22,8 +21,6 @@ h1 {
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 20px rgba(8, 7, 16, 0.6);
   padding: 30px 35px;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .loginForm * {
